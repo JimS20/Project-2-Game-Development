@@ -111,10 +111,10 @@ class Player:
                 self.posY += 0.25
                 #next player here
    def update_catagoryleft(self):
-        self.posX += 0.25
+        self.posX += 5000
 
    def update_catagoryright(self):
-        self.posX -= 0.25
+        self.posX -= 5000
 
     
    def draw(self, screen):

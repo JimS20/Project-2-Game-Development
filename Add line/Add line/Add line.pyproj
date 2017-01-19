@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PLayerclass1.2.py</StartupFile>
+    <StartupFile>PLayerclass1.5.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,7 +24,7 @@
   <ItemGroup>
     <Compile Include="PLayerclass.py" />
     <Compile Include="PLayerclass1.1.py" />
-    <Compile Include="PLayerclass1.2.py" />
+    <Compile Include="PLayerclass1.6.py" />
     <Compile Include="PLayerclass1.3.py" />
     <Compile Include="PLayerclass1.4.py" />
   </ItemGroup>
