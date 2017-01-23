@@ -3,15 +3,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>a24ea5d9-da95-43af-b667-c219ef96f6c6</ProjectGuid>
+    <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PythonApplication1.py</StartupFile>
+    <StartupFile>Vragen toevoegen\module1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>PythonApplication1</Name>
-    <RootNamespace>PythonApplication1</RootNamespace>
+    <Name>Add line</Name>
+    <RootNamespace>Add line</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +22,21 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PythonApplication1.py" />
+    <Compile Include="PLayerclass.py" />
+    <Compile Include="PLayerclass1.1.py" />
+    <Compile Include="PLayerclass1.5.py" />
+    <Compile Include="PLayerclass1.6.py" />
+    <Compile Include="PLayerclass1.8.py" />
+    <Compile Include="PLayerclass1.3.py" />
+    <Compile Include="PLayerclass1.4.py" />
+    <Compile Include="PLayerclass2.0.py" />
+    <Compile Include="Vragen toevoegen\Addquestions1.5.py" />
+    <Compile Include="Vragen toevoegen\questionsclasses.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vragen toevoegen\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
