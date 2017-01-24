@@ -13,7 +13,7 @@ display_hight = 600
 gameDisplay = pygame.display.set_mode((display_width, display_hight))
 pygame.display.set_caption('Quiz')
 
-font = pygame.font.SysFont(None, 30)
+font = pygame.font.SysFont(None, 30)  
 
 
 class questions():  # vragen op het scheerm
@@ -25,8 +25,7 @@ class questions():  # vragen op het scheerm
         self.correct = correct
 
 
-class askquestion():    
-
+class askquestion():  
 
     def gameLoop():
             
@@ -83,6 +82,6 @@ random_selection = random.randint(0, len(l) - 1)
 print(l[random_selection].questions)
 
 def program():
-    game = askquestion()
+    
     askquestion.gameLoop()
 program()

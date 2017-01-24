@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Vragen toevoegen\module1.py</StartupFile>
+    <StartupFile>Vragen toevoegen\Questionsworking1.2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,10 @@
     <Compile Include="PLayerclass1.3.py" />
     <Compile Include="PLayerclass1.4.py" />
     <Compile Include="PLayerclass2.0.py" />
+    <Compile Include="Vragen toevoegen\Addquestions.py" />
+    <Compile Include="Vragen toevoegen\Addquestions1.1.py" />
+    <Compile Include="Vragen toevoegen\Addquestions1.3.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking1.2.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.5.py" />
     <Compile Include="Vragen toevoegen\questionsclasses.py">
       <SubType>Code</SubType>
