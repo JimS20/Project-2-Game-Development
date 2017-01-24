@@ -1,0 +1,103 @@
+import pygame
+import time
+
+pygame.init()
+display_width = 800
+display_height = 600
+black = (0, 0, 0)
+white = (255, 255, 255)
+green = (0, 220, 0)
+red = (200, 0, 0)
+blue = (0, 150, 200)
+orange = (220, 220, 0)
+
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+bright_orange = (255, 255, 0)
+block_color = (53, 115, 255)
+
+sky_blue = (135, 206, 250)
+lightsky_blue = (135, 206, 250)
+
+
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+
+pygame.display.set_caption('Euromast')
+clock = pygame.time.Clock()
+
+def text_objects(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    backgroundText = pygame.font.Font('freesansbold.ttf', 80)
+    TextSurf, TextRect = text_objects(text, backgroundText)
+    TextRect.center = ((display_width/2), (display_height/2))
+    gameDisplay.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+    time.sleep(1)
+
+def quitgame():
+    pygame.quit()
+    quit()
+
+score_List = 'bjhbjhbjhgjh' #de score text bijhouden, maar moet nog verbeteringen mee komen
+
+def scoreDisplay(message, x_coordinaat, y_coordinaat, display_width, display_height, inactive, active, action=None):
+
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_coordinaat + display_width > mouse[0] > x_coordinaat and y_coordinaat + display_height > mouse[1] > y_coordinaat:
+        pygame.draw.rect(gameDisplay, active, (x_coordinaat, y_coordinaat, display_width, display_height))
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(gameDisplay, inactive, (x_coordinaat, y_coordinaat, display_width, display_height))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_objects("Scoreboard", smallText)
+    textRect.center = (x_coordinaat + (display_width /2), y_coordinaat + (display_height * 0.2))
+    gameDisplay.blit(textSurf, textRect)
+
+
+    textSurf, textRect = text_objects(score_List, smallText) #zelfde functie als hierboven maar dan is de "Scoreboard" text vervangen door score_List
+    textRect.center = (x_coordinaat + (display_width / 2), y_coordinaat + (display_height * 0.5))
+    gameDisplay.blit(textSurf, textRect)
+
+def backButton(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, active, action=None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_coordinaat + breedte > mouse[0] > x_coordinaat and y_coordinaat + hoogte > mouse[1] > y_coordinaat:
+        pygame.draw.rect(gameDisplay, active, (x_coordinaat, y_coordinaat, breedte, hoogte))
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(gameDisplay, inactive, (x_coordinaat, y_coordinaat, breedte, hoogte))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_objects("Back", smallText)
+    textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
+    gameDisplay.blit(textSurf, textRect)
+
+def game_score():
+    rules = True
+    while rules:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        gameDisplay.fill(white)
+
+        scoreDisplay(score_List, (display_width * 0.02), (display_height * 0.02), (display_width - (display_width * 0.04)), ((display_height * 0.7) - (display_width * 0.04)), sky_blue, lightsky_blue)
+        backButton('Back', 50, 400, 200, 50, red, bright_red)
+
+        pygame.display.update()
+        clock.tick(15)
+
+game_score()
+pygame.quit()
+quit()

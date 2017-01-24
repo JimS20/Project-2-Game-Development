@@ -1,0 +1,84 @@
+import pygame
+import time
+
+#IK WEET NOG NIET OF DEZE PAGINA WEL NODIG IS, MAAR TOCH ZET IK HEM ERBIJ
+
+pygame.init()
+display_width = 800
+display_height = 600
+rs_800600 = (800, 600)
+rs_12801080 = (1280, 1080)
+black = (0, 0, 0)
+white = (255, 255, 255)
+green = (0, 220, 0)
+red = (200, 0, 0)
+blue = (0, 150, 200)
+orange = (220, 220, 0)
+
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+bright_orange = (255, 255, 0)
+block_color = (53, 115, 255)
+
+go_Cor = (150, 450, 100, 50, green, bright_green)
+quit_Cor = (550, 450, 100, 50, red, bright_red)
+
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption('Euromast')
+clock = pygame.time.Clock()
+
+def text_objects(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    backgroundText = pygame.font.Font('freesansbold.ttf', 80)
+    TextSurf, TextRect = text_objects(text, backgroundText)
+    TextRect.center = ((display_width/2), (display_height/2))
+    gameDisplay.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+    time.sleep(1)
+
+def backButton(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, active, action=None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_coordinaat + breedte > mouse[0] > x_coordinaat and y_coordinaat + hoogte > mouse[1] > y_coordinaat:
+        pygame.draw.rect(gameDisplay, active, (x_coordinaat, y_coordinaat, breedte, hoogte))
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(gameDisplay, inactive, (x_coordinaat, y_coordinaat, breedte, hoogte))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_objects("Back", smallText)
+    textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
+    gameDisplay.blit(textSurf, textRect)
+
+def game_options():
+    rules = True
+    gameDisplay.fill(white)
+    while rules:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+
+        largeText = pygame.font.Font('freesansbold.ttf', 80)
+        TextSurf, TextRect = text_objects('Rules Tab', largeText)
+        TextRect.center = ((display_width / 2), (display_height / 2))
+        gameDisplay.blit(TextSurf, TextRect)
+
+        backButton('Back', 50, 400, 50, 50, red, bright_red)
+
+
+        pygame.display.update()
+        clock.tick(60)
+
+game_options()
+
+pygame.quit()
+quit()

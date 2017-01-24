@@ -1,0 +1,110 @@
+import pygame
+import time
+
+#IK PROBEERDE ZE TE KOPPELEN MET CLASSES, MAAR WAS MIJ NOG STEEDS NIET GELUKT
+
+pygame.init()
+display_width = 800
+display_height = 600
+black = (0, 0, 0)
+white = (255, 255, 255)
+green = (0, 220, 0)
+red = (200, 0, 0)
+blue = (0, 150, 200)
+orange = (220, 220, 0)
+
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+bright_orange = (255, 255, 0)
+block_color = (53, 115, 255)
+
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption('Euromast GAME')
+clock = pygame.time.Clock()
+
+class Menu():
+
+    def __init__(self, message, mouse, click, text, font, smallText):
+        self.message = message
+        self.mouse = mouse
+        self.click = click
+        self.text = text
+        self.font = font
+        self.smallText= smallText
+
+
+
+        pygame.display.update()
+
+    def text_objects(self, textSurface):
+        self.textSurface = textSurface
+        self.textSurface = self.font.render(self.text, True, black)
+        return self.textSurface, self.textSurface.get_rect()
+
+    def message_display(self, text, backgroundText, TextSurf, TextRect):
+        self.text = text
+        self.backgroundText = backgroundText
+        self.TextSurf = TextSurf
+        self.TextRect = TextRect
+        self.backgroundText = pygame.font.Font('freesansbold.ttf', 80)
+        self.TextSurf, self.TextRect = self.text_objects(self.text)
+        self.TextRect.center = ((display_width / 2), (display_height / 2))
+        gameDisplay.blit(self.TextSurf, self.TextRect)
+
+        pygame.display.update()
+
+        time.sleep(1)
+
+    def quit_Game(self, quit):
+        pygame.quit()
+        self.quit = quit()
+
+    def every_Button(self, message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, active, action=None):
+
+        self.message = message
+        self.x_coordinaat = x_coordinaat
+        self.y_coordinaat = y_coordinaat
+        self.breedte = breedte
+        self.hoogte = hoogte
+        self.inactive = inactive
+        self.active = active
+        self.action = action
+
+        self.mouse = pygame.mouse.get_pos()
+        self.click = pygame.mouse.get_pressed()
+        if self.x_coordinaat + self.breedte > self.mouse[0] > self.x_coordinaat and self.y_coordinaat + self.hoogte > self.mouse[1] > self.y_coordinaat:
+            pygame.draw.rect(gameDisplay, self.active, (self.x_coordinaat, self.y_coordinaat, self.breedte, self.hoogte))
+            if self.click[0] == 1 and self.action != None:
+                self.action()
+        else:
+            pygame.draw.rect(gameDisplay, self.inactive, (self.x_coordinaat, self.y_coordinaat, self.breedte, self.hoogte))
+
+        self.smallText = pygame.font.Font("freesansbold.ttf", 20)
+        textSurf, textRect = self.text_objects("Start")
+        textRect.center = (self.x_coordinaat + (self.breedte / 2), self.y_coordinaat + (self.hoogte / 2))
+        gameDisplay.blit(textSurf, textRect)
+
+    def game_intro(self):
+        intro = True
+        while intro:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+            self.largeText = pygame.font.Font('freesansbold.ttf', 80)
+            TextSurf, TextRect = self.text_objects('Rotterdam Toren')
+            TextRect.center = ((display_width / 2), (display_height / 2))
+            gameDisplay.blit(TextSurf, TextRect)
+
+            self.every_Button('Start', 50, 100, 200, 50, green, bright_green)
+            self.every_Button('Rules', 50, 200, 200, 50, blue, bright_blue)
+            self.every_Button('Score', 50, 300, 200, 50, orange, bright_orange)
+            self.every_Button("Quit", 50, 400, 200, 50, red, bright_red, quit())
+
+            pygame.display.update()
+            clock.tick(15)
+
+pygame.quit()
+quit()
