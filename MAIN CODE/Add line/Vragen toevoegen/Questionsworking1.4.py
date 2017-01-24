@@ -18,6 +18,7 @@ display_hight = 480
 gameDisplay = pygame.display.set_mode((display_width, display_hight))
 
 diceDisplay = pygame.display.set_mode((display_width, display_hight))
+window = pygame.display.set_mode((500, 400))
 
 #Plaatjes die de dobbelsteen getal laten zien
 OneFace = pygame.image.load("images/1.png")
@@ -117,11 +118,10 @@ class Game:
     def game_loop(self):
         while not process_events():
             for event in pygame.event.get():
-
-                Dice()  
   
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP:
+                        rollDice()
                         if self.Player.posX == 320:
 
                             if askquestion1():
@@ -303,7 +303,7 @@ def askquestion2(): #categorie vragen 2
                     if event.key == pygame.K_q:
                             break
 
-class Dice:
+def rollDice():
 
      # message hoe hij er uit moet zien en waar
     def messages_to_screen(msg, color, lokatie1, lokatie2):
@@ -347,7 +347,20 @@ class Dice:
 
     pygame.display.flip()
 
-    pygame.time.wait(6000)
+    pygame.time.wait(3000)
+
+    if diceCurrentImage == 1:
+        return print("1")
+    elif diceCurrentImage == 2:
+        return print("2")
+    elif diceCurrentImage == 3:
+        return print("3")
+    elif diceCurrentImage == 4:
+        return print("4")
+    elif diceCurrentImage == 5:
+        return print("5")
+    else:
+        return print("6")
     
 
 #Handle pygame events

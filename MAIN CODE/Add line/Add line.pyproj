@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Vragen toevoegen\Questionsworking1.2.py</StartupFile>
+    <StartupFile>Vragen toevoegen\Questionsworking2.3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Dice.py" />
     <Compile Include="PLayerclass.py" />
     <Compile Include="PLayerclass1.1.py" />
     <Compile Include="PLayerclass1.5.py" />
@@ -33,7 +34,12 @@
     <Compile Include="Vragen toevoegen\Addquestions.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.1.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.3.py" />
-    <Compile Include="Vragen toevoegen\Questionsworking1.2.py" />
+    <Compile Include="Vragen toevoegen\Dice.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking1.4.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking2.3.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking1.6.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking1.7.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.5.py" />
     <Compile Include="Vragen toevoegen\questionsclasses.py">
       <SubType>Code</SubType>
@@ -41,6 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vragen toevoegen\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vragen toevoegen\1.png" />
+    <Content Include="Vragen toevoegen\2.png" />
+    <Content Include="Vragen toevoegen\3.png" />
+    <Content Include="Vragen toevoegen\4.png" />
+    <Content Include="Vragen toevoegen\5.png" />
+    <Content Include="Vragen toevoegen\6.png" />
+    <Content Include="Vragen toevoegen\6dicecubes.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -18,6 +18,7 @@ display_hight = 480
 gameDisplay = pygame.display.set_mode((display_width, display_hight))
 
 diceDisplay = pygame.display.set_mode((display_width, display_hight))
+window = pygame.display.set_mode((500, 400))
 
 #Plaatjes die de dobbelsteen getal laten zien
 OneFace = pygame.image.load("images/1.png")
@@ -65,15 +66,33 @@ class Game:
          if self.Player.number == 1:
                 self.Player.update_question()
                 self.Player = self.Player2
-         elif self.Player2.number == 2:
+         else:
                 self.Player.update_question()
+                self.Player = self.Player1
+
+    def update_question2(self):
+        #Update entities
+         if self.Player.number == 1:
+                self.Player.update_question2()
+                self.Player = self.Player2
+         else:
+                self.Player.update_question2()
+                self.Player = self.Player1
+
+    def update_question3(self):
+        #Update entities
+         if self.Player.number == 1:
+                self.Player.update_question3()
+                self.Player = self.Player2
+         else:
+                self.Player.update_question3()
                 self.Player = self.Player1
 
     def update_catagoryleft(self):
          if self.Player.number == 1:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player2
-         elif self.Player2.number == 2:
+         else:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player1
 
@@ -82,7 +101,7 @@ class Game:
          if self.Player.number == 1:
                 self.Player.update_catagoryright()
                 self.Player = self.Player2
-         elif self.Player.number == 2:
+         else:
                 self.Player.update_catagoryright()
                 self.Player = self.Player1
 
@@ -90,7 +109,7 @@ class Game:
 
          if self.Player.number == 1:
                 self.Player = self.Player2
-         elif self.Player.number == 2:
+         else:
                 self.Player = self.Player1
          
 
@@ -116,56 +135,181 @@ class Game:
     #The game loop
     def game_loop(self):
         while not process_events():
-            for event in pygame.event.get():
 
-                Dice()  
-  
+            for event in pygame.event.get():
+                
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP:
-                        if self.Player.posX == 320:
+                        answer = rollDice()
 
-                            if askquestion1():
-                                self.update_question()
-                                self.draw()
+                        if self.Player.posX == 320:
+                            
+                            if answer == "One":
+                                if askquestion1():
+                                    self.update_question()
+                                    self.draw()
+                                    print(answer)
+ 
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+
+                            elif answer == "Two":
+                                if askquestion1():
+                                    self.update_question()
+                                    self.draw()
+                                    print(answer)
+ 
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+
+
+                            elif answer == "Three":
+                                if askquestion1():
+                                    self.update_question2()
+                                    self.draw()
+                                    print(answer)
+ 
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+
+                            elif answer == "Four":
+                                if askquestion1():
+                                    self.update_question2()
+                                    self.draw()
+                                    print(answer)
+ 
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+
+
                             else:
-                                self.nextplayer
-                                self.draw()
+                                if askquestion1():
+                                    self.update_question3()
+                                    self.draw()
+                                    print(answer)
+
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+    #vanaf hier uitbreiden 
 
                         elif self.Player.posX == 370:
 
-                            if askquestion1():
-                                self.update_question()
-                                self.draw()
+                            if answer == "One" or "Two":
+                                if askquestion1():
+                                    self.update_question()
+                                    self.draw()
+                             
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                              
+
+                            elif answer == "Three" or "Four":
+                                if askquestion1():
+                                    self.update_question2()
+                                    self.draw()
+                               
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                           
+
                             else:
-                                self.nextplayer
-                                self.draw()
+                                if askquestion1():
+                                    self.update_question3()
+                                    self.draw()
+                            
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                            
 
                         elif self.Player.posX == 270:
+                            if answer == "One":
+                                if askquestion2():
+                                    self.update_question()
+                                    self.draw()
+                              
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                            
 
-                            if askquestion2():
-                                self.update_question()
-                                self.draw()
+
+                            elif answer == "Three" or "Four":
+                                if askquestion2():
+                                    self.update_question2()
+                                    self.draw()
+                            
+
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                              
+
+
                             else:
-                                self.nextplayer
-                                self.draw()
+                                if askquestion2():
+                                    self.update_question3()
+                                    self.draw()
+                           
+
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                            
+
 
                         elif self.Player.posX == 220:
 
-                            if askquestion2():
-                                self.update_question()
-                                self.draw()
+                            if answer == "One" or "Two":
+                                if askquestion2():
+                                    self.update_question()
+                                    self.draw()
+                             
+
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                              
+
+
+                            elif answer == "Three" or "Four":
+                                if askquestion2():
+                                    self.update_question2()
+                                    self.draw()
+                                    
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                              
+
+
                             else:
-                                self.nextplayer
-                                self.draw()
+                                if askquestion2():
+                                    self.update_question3()
+                                    self.draw()
+                           
+
+                                else:
+                                    self.nextplayer
+                                    self.draw()
+                          
+
 
                                 
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
+                
+                    elif event.key == pygame.K_LEFT:
                         self.update_catagoryleft()
                         self.draw()
 
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RIGHT:
+                
+                    elif event.key == pygame.K_RIGHT:
                         self.update_catagoryright()
                         self.draw()
 
@@ -180,6 +324,13 @@ class Player:
 
    def update_question(self):
         self.posY -= 40
+
+   def update_question2(self):
+        self.posY -= 80
+
+   def update_question3(self):
+        self.posY -= 120
+
    def update_catagoryleft(self):
         self.posX -= 50
 
@@ -303,7 +454,7 @@ def askquestion2(): #categorie vragen 2
                     if event.key == pygame.K_q:
                             break
 
-class Dice:
+def rollDice():
 
      # message hoe hij er uit moet zien en waar
     def messages_to_screen(msg, color, lokatie1, lokatie2):
@@ -339,15 +490,26 @@ class Dice:
             return window.blit(FiveFace, (190, 250))
         elif diceCurrentImage == 6:
             return window.blit(SixFace, (190, 250))
-        else:
-            return window.blit(AllDice, (190, 250))
 
 
     diceCurrentImage = dicecurrentimage()
 
     pygame.display.flip()
 
-    pygame.time.wait(6000)
+    pygame.time.wait(3000)
+
+    if diceCurrentImage == window.blit(OneFace, (190, 250)):
+        return "One"
+    elif diceCurrentImage == window.blit(TwoFace, (190, 250)):
+        return "Two"
+    elif diceCurrentImage == window.blit(ThreeFace, (190, 250)):
+        return "Three"
+    elif diceCurrentImage == window.blit(FourFace, (190, 250)):
+        return "Four"
+    elif diceCurrentImage == window.blit(FiveFace, (190, 250)):
+        return "Five"
+    else:
+        return "Six"
     
 
 #Handle pygame events
