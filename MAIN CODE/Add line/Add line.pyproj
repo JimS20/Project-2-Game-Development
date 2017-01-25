@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Vragen toevoegen\Questionsworking2.3.py</StartupFile>
+    <StartupFile>Vragen toevoegen\Questionsworking3.1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -37,7 +37,7 @@
     <Compile Include="Vragen toevoegen\Dice.py" />
     <Compile Include="Vragen toevoegen\Questionsworking.py" />
     <Compile Include="Vragen toevoegen\Questionsworking1.4.py" />
-    <Compile Include="Vragen toevoegen\Questionsworking2.3.py" />
+    <Compile Include="Vragen toevoegen\Questionsworking3.1.py" />
     <Compile Include="Vragen toevoegen\Questionsworking1.6.py" />
     <Compile Include="Vragen toevoegen\Questionsworking1.7.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.5.py" />
