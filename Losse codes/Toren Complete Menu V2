@@ -1,0 +1,128 @@
+import pygame
+import time
+
+pygame.init()
+
+display_width = 800
+display_height = 600
+
+black = (0, 0, 0)
+white = (255, 255, 255)
+green = (0, 220, 0)
+red = (200, 0, 0)
+blue = (0, 150, 200)
+orange = (220, 220, 0)
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+bright_orange = (255, 255, 0)
+block_color = (53, 115, 255)
+sky_blue = (135, 206, 250)
+lightsky_blue = (135, 206, 250)
+
+gameDisplay = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption('Euromast GAME')
+clock = pygame.time.Clock()
+
+background = pygame.image.load('Euromast.jpg')
+Regels = pygame.image.load('Regels.jpg')
+
+top1 = '23123'
+top2 = '2313'
+top3 = '123'
+
+state = 0
+
+score_List = str(top1) + '/n' + str(top2) + '/n' + str(top3) + '/n'
+
+
+def text_objects(text, font):
+    textSurface = font.render(text, True, white)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    backgroundText = pygame.font.Font('freesansbold.ttf', 80)
+    TextSurf, TextRect = text_objects(text, backgroundText)
+    TextRect.center = ((display_width/2), (display_height/2))
+    gameDisplay.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+    time.sleep(1)
+
+def text_Buttons(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+def quitgame():
+    pygame.quit()
+    quit()
+
+def Button(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, active, action=None):
+
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_coordinaat + breedte > mouse[0] > x_coordinaat and y_coordinaat + hoogte > mouse[1] > y_coordinaat:
+        pygame.draw.rect(gameDisplay, active, (x_coordinaat, y_coordinaat, breedte, hoogte))
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(gameDisplay, inactive, (x_coordinaat, y_coordinaat, breedte, hoogte))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_Buttons(message, smallText)
+    textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
+    gameDisplay.blit(textSurf, textRect)
+    if state == 1:
+        textSurf, textRect = text_objects(score_List, smallText)
+        textRect.center = (x_coordinaat + (display_width / 2), y_coordinaat + (display_height * 0.8))
+        gameDisplay.blit(textSurf, textRect)
+
+def state0(): #Main
+    global state
+    state = 0
+
+def state1(): #Rules
+    global state
+    state = 1
+
+def state2(): #Score
+    global state
+    state = 2
+
+def main_menu():
+    intro = True
+    while intro:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        if state == 0:
+            gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            Button('Start', 50, 100, 200, 50, green, bright_green)
+            Button('Rules', 50, 200, 200, 50, blue, bright_blue, state1)
+            Button('Score', 50, 300, 200, 50, orange, bright_orange, state2)
+            Button("Quit", 50, 400, 200, 50, red, bright_red, quitgame)
+
+            largeText = pygame.font.Font('freesansbold.ttf', 60)
+            TextSurf, TextRect = text_objects('Rotterdam Toren', largeText)
+            TextRect.center = ((display_width / 2), (display_height * 0.08))
+            gameDisplay.blit(TextSurf, TextRect)
+
+        elif state == 1:
+            gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            gameDisplay.blit(pygame.transform.scale(Regels, (display_width, display_height)), (10, 10))
+            Button('Back', 50, 50, 200, 50, red, bright_red, state0)
+        elif state == 2:
+            gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            Button(score_List, (display_width * 0.02), (display_height * 0.02),(display_width - (display_width * 0.04)), ((display_height * 0.7) - (display_width * 0.04)), sky_blue, lightsky_blue)
+            Button('Back', 50, 500, 200, 50, red, bright_red, state0)
+
+        pygame.display.flip()
+        clock.tick(60)
+
+main_menu()
+quitgame()
+pygame.quit()
+quit()
