@@ -1,0 +1,54 @@
+Geschiedenis
+ 
+a = questions(["Welke uitgaanscentrum in Rotterdam werd maar liefst met vier bioscopen uitgebreid na de oorlog? "], ["A : Kruiskade"], ["B : Blaak"], ["C : Beurs"], [pygame.K_a])
+b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens de 2e wereld oorlog? "], ["A : 14-Mei-1940"], ["B : 17-Juli-1935"], ["C : 31-12-1948"], [pygame.K_a])
+c = questions(["In welk jaar werd de eerste metrolijn van rotterdam geopend? "], ["A : 1967"], ["B : 1976"], ["C : 1968"], [pygame.K_c])
+d = questions(["In welk jaar werd rotterdam de grootste havenstad van de wereld? "], ["A : 1926"], ["B : 1962"], ["C : 1936"], [pygame.K_c])
+e = questions(["Welke autotunnel van Rotterdam was het eerste in nederland? "], ["A : maastunnel"], ["B : wijntunnel"], ["C : metrotunnel"], [pygame.K_a])
+f = questions(["Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum die de Duitsers probeerden te bereiken? "], ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
+g = questions(["Wanneer was de professionele voetbalclub Feyenoord opgericht? "], ["A : 19-07-1908"], ["B : 07-12-1910"], ["C : 30-03-1906"], [pygame.K_a])
+h = questions(["In welk jaar heeft Rotterdam definitief stadsrechten gekregen "], ["A : 7-juni-1340"], ["B : 17-maart-1300"], ["C : 13-03-1328"], [pygame.K_a])
+i = questions(["Waar stond vroeger de wijk Katendracht om bekend? "], ["A : De beste bakker van de stad was daar gevestigd"], ["B : De prostituees"], ["C : De oudste beschermde boom van de stad staat daar"], [pygame.K_b])
+j = questions(["In welk jaar startte de Tour de France in Rotterdam? "], ["A : 2010"], ["B : 2005"], ["C : 2000"], [pygame.K_a])
+
+Sport
+
+a = questions(["Wanneer won feyenoord de Intercontinental cup (wereldbeker)? "], ["A : 1980"], ["B : 1975"], ["C : 1970"], [pygame.K_c])
+b = questions(["Wanneer won Feyenoord de europacup? "], ["A : 1986"], ["B : 1970"], ["C : 1976"], [pygame.K_b])
+c = questions(["Hoe vaak won feyenoord de UEFA Cup? "], ["A : 3"], ["B : 1"], ["C : 2"], [pygame.K_c])
+d = questions(["Welk merk is de kledingmerk van feyenoord in 2014 tot heden? "], ["A : Adidas"], ["B : Hummel"], ["C : Puma"], [pygame.K_a])
+e = questions(["Welke merk is de shirtsponsor van Feyenoord in 2013 tot heden? "], ["A : Fortis"], ["B : ASR Verzekeringen"], ["C : Opel"], [pygame.K_c])
+f = questions(["Wie is de aartsrivaal van Feyenoord? "], ["A : PSV"], ["B : AZ"], ["C : Ajax"], [pygame.K_c])
+g = questions(["Wie van deze keepers is van Feyenoord? "], ["A : Petr Cèch"], ["B : Kenneth Vermeer"], ["C : Edwin van der Sar"], [pygame.K_b])
+i = questions(["Welke manier van het sport word het meest beoefend in Rotterdam? "], ["A : Fitness"], ["B : Voetbal"], ["C : Basketbal"], [pygame.K_a])
+h = questions(["Wanneer was de club Sparta Rotterdam opgericht? "], ["A : 01-04-1888"], ["B : 04-01-1988"], ["C : 03-02-1932"], [pygame.K_a])
+i = questions(["Hoe vaak won Sparta Rotterdam de KNVB Beker? "], ["A : 4"], ["B : 2"], ["C : 3"], [pygame.K_c])
+j = questions(["Hoe veel actieve voetbalclubs heeft rotterdam? "], ["A : 48"], ["B : 36"], ["C : 24"], [pygame.K_a])
+
+
+aardrijkskunde
+
+a = questions(["Waar ligt de euromast in Rotterdam? "], ["A : Wijnhaven"], ["B : Delfsehaven"], ["C : Parkhaven"], [pygame.K_c])
+b = questions(["Hoe heet de vervoersbedrijf in rotterdam? "], ["A : HTM"], ["B : Connection"], ["C : RET"], [pygame.K_c])
+c = questions(["Hoe groot is Rotterdam, inclusief wateren? "], ["A : 319,4 km2"], ["B : 319,5 km2"], ["C : 319,6 km2"], [pygame.K_a])
+d = questions(["Hoe hoog is de maastoren? "], ["A : 168,8 meter"], ["B : 168,4 meter"], ["C : 167,9 meter"], [pygame.K_a])
+e = questions(["Welk gebouw is het hoogste van Rotterdam? "], ["A : Shell Pernis"], ["B : Maastoren"], ["C : New Orleans"], [pygame.K_a])
+f = questions(["Wat is de oudste burg van Rotterdam? "], ["A : De Willemsburg"], ["B : De Koninginneburg"], ["C : Pietersonburg"], [pygame.K_b])
+g = questions(["In welke provincie ligt Rotterdam"], ["A : Zuid-Holland"], ["B : Noord-Holland"], ["C : Noord-Brabant"], [pygame.K_a])
+i = questions(["Waar kan je NIET terecht om te gaan zwemmen"], ["A : Hoek van Holland"], ["B : Euromast park"], ["C : Plaswijckpark"], [pygame.K_b])
+h = questions(["Wat is de bekendste dierentuin in Rotterdam? "], ["A : Apeldoorn"], ["B : Nordhon"], ["C : Diergaarde Blijdorp"], [pygame.K_c])
+i = questions(["Hoe hoog is de Euromast? "], ["A : 190 Meter"], ["B : 185 Meter"], ["C : 170 Meter"], [pygame.K_b])
+j = questions(["welke klimaat heerst er in Rotterdam? "], ["A : Overmatigd Zeeklimaat"], ["B : Gematigd Zeeklimaat"], ["C : Er is geen klimaat in Rotterdam."], [pygame.K_b])
+
+Entertaiment
+a = questions(["Welke gorilla ontsnapte er in 2007 uit Diergaarde Blijdorp? "], ["A : Harambe"], ["B : Bokito"], ["C : Terk"], [pygame.K_b])
+b = questions(["Voor welk museum staat het monument van Zadkine genaamd De Verwoest Stad? "], ["A : Maritiem Museum"], ["B : Havenmuseum"], ["C : Mariniersmuseum"], [pygame.K_a])
+c = questions(["Wat is de bekendste plek in Rotterdam Waar kan je terecht voor evenementen en concerten? "], ["A : Villa Thalia"], ["B : Ahoy Rotterdam"], ["C : Hollywood"], [pygame.K_b])
+d = questions(["Welke in 2002 vermoorde politicus woonde in Rotterdam"], ["A : Pim fortuyn"], ["B : Peter Balkenende"], ["C : Wim Kok"], [pygame.K_a])
+e = questions(["Hoe heet de culturele en culinaire ontdekkingstocht door Rotterdam? "], ["A : Drive & Eat"], ["B : Bike & Bite"], ["C : Slice & Dice"], [pygame.K_b])
+f = questions(["Welk concertzaal bevindt zich bij schouwburgsplein? "], ["A : De doelen"], ["B : Luxor Theater"], ["C : Theater Zuidplein"], [pygame.K_a])
+g = questions(["Op welk plein vindt jaarlijkse het Najaarskermis Rotterdam plaats? "], ["A : Mullerpier"], ["B : Pier 80"], ["C : Schouwburgplein"], [pygame.K_a])
+i = questions(["Voor welk vervoermiddel is er geen tour door Rotterdam Beschikbaar? "], ["A : Segway"], ["B : Boot"], ["C : Auto"], [pygame.K_c])
+h = questions(["Met welke boot kun je rondvaren bij de Erasmusburg? "], ["A : De spido"], ["B : Watertaxi"], ["C : Zwanenbootje"], [pygame.K_a])
+i = questions(["Welk van de volgende Pathé bioscopen is NIET in Rotterdam? "], ["A : Pathé de Kroon"], ["B : Pathé de Kuip"], ["C : Pathé Schouwburgplein"], [pygame.K_a])
+j = questions(["In welke bioscoop vindt het Wildlife Film Festival plaats? "], ["A : Cinerama"], ["B : Pathé de kuip"], ["C : pathé schouwburgplein"], [pygame.K_a])
