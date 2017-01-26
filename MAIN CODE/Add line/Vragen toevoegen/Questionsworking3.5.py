@@ -12,16 +12,28 @@ pygame.init()
 white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
+blue = (0, 150, 200)
+orange = (220, 220, 0)
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+bright_orange = (255, 255, 0)
+block_color = (53, 115, 255)
+sky_blue = (135, 206, 250)
+lightsky_blue = (135, 206, 250)
+green = (0, 220, 0)
 
 display_width = 640
-display_hight = 480
-gameDisplay = pygame.display.set_mode((display_width, display_hight))
+display_height = 480
+gameDisplay = pygame.display.set_mode((display_width, display_height))
 
-diceDisplay = pygame.display.set_mode((display_width, display_hight))
+diceDisplay = pygame.display.set_mode((display_width, display_height))
 
-winDisplay = pygame.display.set_mode((display_width, display_hight))
+winDisplay = pygame.display.set_mode((display_width, display_height))
 
-window = pygame.display.set_mode((500, 400))
+menuDisplay = pygame.display.set_mode((display_width, display_height))
+
+window = pygame.display.set_mode((640, 480))
 
 #Plaatjes die de dobbelsteen getal laten zien
 OneFace = pygame.image.load("images/1.png")
@@ -31,6 +43,17 @@ FourFace = pygame.image.load("images/4.png")
 FiveFace = pygame.image.load("images/5.png")
 SixFace = pygame.image.load("images/6.png")
 AllDice = pygame.image.load("images/6dicecubes.png")
+
+background = pygame.image.load('images/Euromast.jpg')
+Regels = pygame.image.load('images/Regels.jpg')
+
+top1 = '23123'
+top2 = '2313'
+top3 = '123'
+
+score_List = str(top1) + '/n' + str(top2) + '/n' + str(top3) + '/n'
+
+clock = pygame.time.Clock()
 
 state = 0
 
@@ -160,6 +183,16 @@ class Game:
         #Flip the screen
         pygame.display.flip()
 
+    def drawcorrect(self):
+        self.score_text = self.font.render("Correct!",10,(255, 255, 255))
+        self.screen.blit(self.score_text,(400,270))
+        pygame.display.flip()
+    
+    def drawwrong(self):
+        self.score_text = self.font.render("Fout!",10,(255, 255, 255))
+        self.screen.blit(self.score_text,(400,270))
+        pygame.display.flip()
+
     #The game loop
     def game_loop(self):
         while not process_events():
@@ -175,53 +208,63 @@ class Game:
                                 if askquestion1():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Two":
                                 if askquestion1():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             elif answer == "Three":
                                 if askquestion1():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Four":
                                 if askquestion1():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             else:
                                 if askquestion1():
                                     self.update_question3()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
 
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                         elif self.Player.posX == 370: #rechter lijn
 
@@ -229,53 +272,63 @@ class Game:
                                 if askquestion1():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Two":
                                 if askquestion1():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             elif answer == "Three":
                                 if askquestion1():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Four":
                                 if askquestion1():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             else:
                                 if askquestion1():
                                     self.update_question3()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
 
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
                             
 
                         elif self.Player.posX == 270:#midden-linker lijn
@@ -283,53 +336,63 @@ class Game:
                                 if askquestion2():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Two":
                                 if askquestion2():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             elif answer == "Three":
                                 if askquestion2():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Four":
                                 if askquestion2():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             else:
                                 if askquestion2():
                                     self.update_question3()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
 
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
                             
 
 
@@ -339,53 +402,63 @@ class Game:
                                 if askquestion2():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Two":
                                 if askquestion2():
                                     self.update_question()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             elif answer == "Three":
                                 if askquestion2():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
                             elif answer == "Four":
                                 if askquestion2():
                                     self.update_question2()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
  
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
 
 
                             else:
                                 if askquestion2():
                                     self.update_question3()
                                     self.draw()
+                                    self.drawcorrect
                                     print(answer)
 
                                 else:
                                     self.nextplayer()
                                     self.draw()
+                                    self.drawwrong
                           
 
 
@@ -466,7 +539,7 @@ def askquestion1(): #categorie vragen 1
             
         def messages_to_screen(msg, color, lokatie1, lokatie2):  # massage hoe hij er uit moet zien en waar
                 screen_text = font.render(msg, True, color)
-                gameDisplay.blit(screen_text, [display_hight / lokatie1, display_width / lokatie2])
+                gameDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
         gameExit = False
 
         l = [a,b,c,d,e]
@@ -513,7 +586,7 @@ def askquestion2(): #categorie vragen 2
             
         def messages_to_screen(msg, color, lokatie1, lokatie2):  # massage hoe hij er uit moet zien en waar
                 screen_text = font.render(msg, True, color)
-                gameDisplay.blit(screen_text, [display_hight / lokatie1, display_width / lokatie2])
+                gameDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
         gameExit = False
 
         l = [a,b,c,d,e]
@@ -555,7 +628,7 @@ def rollDice():
      # message hoe hij er uit moet zien en waar
     def messages_to_screen(msg, color, lokatie1, lokatie2):
         screen_text = font.render(msg, True, color)
-        diceDisplay.blit(screen_text, [display_hight / lokatie1, display_width / lokatie2])
+        diceDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
 
     ##als width weer 800 is en height 600 1,74, 3.5
     messages_to_screen("Jouw worp: ", white, 10,5) # 5, 5
@@ -611,7 +684,7 @@ def rollDice():
 def win():
        def messages_to_screen(msg, color, lokatie1, lokatie2):  # massage hoe hij er uit moet zien en waar
                 screen_text = font.render(msg, True, color)
-                winDisplay.blit(screen_text, [display_hight / lokatie1, display_width / lokatie2])
+                winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
        gameExit=False
 
        while not gameExit:
@@ -628,7 +701,7 @@ def win():
 def win2():
        def messages_to_screen(msg, color, lokatie1, lokatie2):  # massage hoe hij er uit moet zien en waar
                 screen_text = font.render(msg, True, color)
-                winDisplay.blit(screen_text, [display_hight / lokatie1, display_width / lokatie2])
+                winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
        gameExit=False
 
        while not gameExit:
@@ -643,6 +716,98 @@ def win2():
                             print("doei")            
     
 
+#MENU------------------------------------------------------------
+def text_objects(text, font):
+    textSurface = font.render(text, True, white)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    backgroundText = pygame.font.Font('freesansbold.ttf', 80)
+    TextSurf, TextRect = text_objects(text, backgroundText)
+    TextRect.center = ((display_width/2), (display_height/2))
+    menuDisplay.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+    time.sleep(1)
+
+def text_Buttons(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+def quitgame():
+    pygame.quit()
+    quit()
+
+def Button(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, active, action=None):
+
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x_coordinaat + breedte > mouse[0] > x_coordinaat and y_coordinaat + hoogte > mouse[1] > y_coordinaat:
+        pygame.draw.rect(menuDisplay, active, (x_coordinaat, y_coordinaat, breedte, hoogte))
+        if click[0] == 1 and action != None:
+            action()
+    else:
+        pygame.draw.rect(menuDisplay, inactive, (x_coordinaat, y_coordinaat, breedte, hoogte))
+
+    smallText = pygame.font.Font("freesansbold.ttf", 20)
+    textSurf, textRect = text_Buttons(message, smallText)
+    textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
+    menuDisplay.blit(textSurf, textRect)
+    if state == 1:
+        textSurf, textRect = text_objects(score_List, smallText)
+        textRect.center = (x_coordinaat + (display_width / 2), y_coordinaat + (display_height * 0.8))
+        menuDisplay.blit(textSurf, textRect)
+
+def state0(): #Main
+    global state
+    state = 0
+
+def state1(): #Rules
+    global state
+    state = 1
+
+def state2(): #Score
+    global state
+    state = 2
+
+def state3(): #Game
+    global state
+    state = 3
+
+def main_menu():
+    intro = True
+    while intro:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        if state == 0:
+            menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            Button('Start', 50, 100, 200, 50, green, bright_green,playgame)
+            Button('Rules', 50, 200, 200, 50, blue, bright_blue, state1)
+            Button('Score', 50, 300, 200, 50, orange, bright_orange, state2)
+            Button("Quit", 50, 400, 200, 50, red, bright_red, quitgame)
+
+            largeText = pygame.font.Font('freesansbold.ttf', 60)
+            TextSurf, TextRect = text_objects('The Euromaster', largeText)
+            TextRect.center = ((display_width / 2), (display_height * 0.08))
+            menuDisplay.blit(TextSurf, TextRect)
+
+        elif state == 1:
+            menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            menuDisplay.blit(pygame.transform.scale(Regels, (display_width, display_height)), (10, 10))
+            Button('Back', 50, 50, 200, 50, red, bright_red, state0)
+        elif state == 2:
+            menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
+            Button(score_List, (display_width * 0.02), (display_height * 0.02),(display_width - (display_width * 0.04)), ((display_height * 0.7) - (display_width * 0.04)), sky_blue, lightsky_blue)
+            Button('Back', 50, 400, 200, 50, red, bright_red, state0)
+
+        pygame.display.flip()
+clock.tick(60)
+
+
 #Handle pygame events
 def process_events():
     for event in pygame.event.get():
@@ -655,9 +820,9 @@ def process_events():
 
 
 #Main program logic
-def program():
+def playgame():
     game=Game()
     game.game_loop()
  
-program()
+main_menu()
 
