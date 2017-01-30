@@ -79,8 +79,8 @@ class Game2Player:
 
         
         #Create player
-        self.Player1 = Player(320, 470,red,1)
-        self.Player2 = Player(270,470,blue,2)
+        self.Player1 = Player(320, 430,red,1)
+        self.Player2 = Player(270,430,blue,2)
 
         l = [self.Player1,self.Player2]
         random_selection = random.choice(l)
@@ -162,7 +162,7 @@ class Game2Player:
 
 
     def update_catagoryleft(self):
-        if checkleft():
+        if self.checkleft():
          if self.Player.number == 1:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player2
@@ -173,12 +173,12 @@ class Game2Player:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40 
                 self.Player.update_catagoryleft()
-            elif self.Player.posY - 120 == self.Player2.posY:
+            elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
                 self.Player.update_catagoryleft()          
 
     def update_catagoryright(self):
-        if checkright():         
+        if self.checkright():         
          if self.Player.number == 1:
                 self.Player.update_catagoryright()
                 self.Player = self.Player2
@@ -189,7 +189,7 @@ class Game2Player:
             if self.Player.posX + 50 == self.Player1.posX:
                 self.Player1.posY += 40 
                 self.Player.update_catagoryright()
-            elif self.Player.posY + 120 == self.Player2.posY:
+            elif self.Player.posX + 50 == self.Player2.posX:
                 self.Player2.posY += 40
                 self.Player.update_catagoryright()
 
@@ -227,8 +227,10 @@ class Game2Player:
 
     def checkleft(self):
         if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            print("hoi")
             return False
         else:
             return True

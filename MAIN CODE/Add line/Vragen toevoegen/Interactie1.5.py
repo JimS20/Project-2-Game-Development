@@ -79,8 +79,8 @@ class Game2Player:
 
         
         #Create player
-        self.Player1 = Player(320, 470,red,1)
-        self.Player2 = Player(270,470,blue,2)
+        self.Player1 = Player(320, 430,red,1)
+        self.Player2 = Player(270,430,blue,2)
 
         l = [self.Player1,self.Player2]
         random_selection = random.choice(l)
@@ -162,7 +162,7 @@ class Game2Player:
 
 
     def update_catagoryleft(self):
-        if checkleft():
+        if self.checkleft():
          if self.Player.number == 1:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player2
@@ -173,12 +173,12 @@ class Game2Player:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40 
                 self.Player.update_catagoryleft()
-            elif self.Player.posY - 120 == self.Player2.posY:
+            elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
                 self.Player.update_catagoryleft()          
 
     def update_catagoryright(self):
-        if checkright():         
+        if self.checkright():         
          if self.Player.number == 1:
                 self.Player.update_catagoryright()
                 self.Player = self.Player2
@@ -189,7 +189,7 @@ class Game2Player:
             if self.Player.posX + 50 == self.Player1.posX:
                 self.Player1.posY += 40 
                 self.Player.update_catagoryright()
-            elif self.Player.posY + 120 == self.Player2.posY:
+            elif self.Player.posX + 50 == self.Player2.posX:
                 self.Player2.posY += 40
                 self.Player.update_catagoryright()
 
@@ -227,8 +227,10 @@ class Game2Player:
 
     def checkleft(self):
         if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            print("hoi")
             return False
         else:
             return True
@@ -628,6 +630,7 @@ class Game3Player:
     #Update game logic
     def update_question(self):
         #Update entities
+        if self.checkup():
          if self.Player.number == 1:
                 self.Player.update_question()
                 if self.Player.posY <= 70:
@@ -646,9 +649,20 @@ class Game3Player:
                     win3()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 40 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question()
+            elif self.Player.posY - 40 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question()
+            elif self.Player.posY - 40 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question()
 
     def update_question2(self):
         #Update entities
+        if self.checkup2():
          if self.Player.number == 1:
                 self.Player.update_question2()
                 if self.Player.posY <= 70:
@@ -667,9 +681,20 @@ class Game3Player:
                     win3()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 80 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 80 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 80 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question2()
 
     def update_question3(self):
         #Update entities
+        if self.checkup3():
          if self.Player.number == 1:
                 self.Player.update_question3()
                 if self.Player.posY <= 70:
@@ -688,8 +713,19 @@ class Game3Player:
                     win3()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 120 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question3()
+            elif self.Player.posY - 120 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question3()
+            elif self.Player.posY - 120 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question3()
 
     def update_catagoryleft(self):
+        if self.checkleft():
          if self.Player.number == 1:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player2
@@ -699,8 +735,19 @@ class Game3Player:
          else:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player1
+        else:
+            if self.Player.posX - 50 == self.Player1.posX:
+                self.Player1.posY += 40 
+                self.Player.update_catagoryleft()
+            elif self.Player.posX - 50 == self.Player2.posX:
+                self.Player2.posY += 40
+                self.Player.update_catagoryleft() 
+            elif self.Player.posX - 50 == self.Player3.posX:
+                self.Player3.posY += 40
+                self.Player.update_catagoryleft()   
 
     def update_catagoryright(self):
+        if self.checkright():
          
          if self.Player.number == 1:
                 self.Player.update_catagoryright()
@@ -712,6 +759,17 @@ class Game3Player:
                 self.Player.update_catagoryright()
                 self.Player = self.Player1
 
+        else:
+            if self.Player.posX + 50 == self.Player1.posX:
+                self.Player1.posY += 40 
+                self.Player.update_catagoryright()
+            elif self.Player.posX + 50 == self.Player2.posX:
+                self.Player2.posY += 40
+                self.Player.update_catagoryright()
+            elif self.Player.posX + 50 == self.Player3.posX:
+                self.Player3.posY += 40
+                self.Player.update_catagoryright()
+
     def nextplayer(self):
 
          if self.Player.number == 1:
@@ -720,6 +778,59 @@ class Game3Player:
                 self.Player = self.Player3
          else:
                 self.Player = self.Player1
+
+    def checkup(self):
+        if (self.Player.posY - 40 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 40 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 40 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        else:
+            return True
+
+    def checkup2(self):
+        if (self.Player.posY - 80 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 80 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 80 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        else:
+            return True
+
+    def checkup3(self):
+        if (self.Player.posY - 120 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 120 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 120 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        else:
+            return True
+
+    def checkleft(self):
+        if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            print("hoi")
+            return False
+        elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            print("hoi")
+            return False
+        elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
+            print("hoi")
+            return False
+        else:
+            return True
+
+    def checkright(self):
+        if (self.Player.posX + 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            return False
+        elif (self.Player.posX + 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            return False
+        elif (self.Player.posX + 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
+            return False
+        else:
+            return True
          
 
     #Draw everything
@@ -1111,6 +1222,7 @@ class Game4Player: # (Gelderen, 2016)
     #Update game logic
     def update_question(self):
         #Update entities
+        if self.checkup():
          if self.Player.number == 1:
                 self.Player.update_question()
                 if self.Player.posY <= 70:
@@ -1136,9 +1248,23 @@ class Game4Player: # (Gelderen, 2016)
                     win4()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 40 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question()
+            elif self.Player.posY - 40 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question()
+            elif self.Player.posY - 40 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question()
+            elif self.Player.posY - 40 == self.Player4.posY:
+                self.Player4.posY += 40
+                self.Player.update_question()
 
     def update_question2(self):
         #Update entities
+        if self.checkup2():
          if self.Player.number == 1:
                 self.Player.update_question2()
                 if self.Player.posY <= 70:
@@ -1165,8 +1291,22 @@ class Game4Player: # (Gelderen, 2016)
                     win4()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 80 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 80 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 80 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 80 == self.Player4.posY:
+                self.Player4.posY += 40
+                self.Player.update_question2()
 
     def update_question3(self):
+        if self.checkup3():
         #Update entities
          if self.Player.number == 1:
                 self.Player.update_question3()
@@ -1194,8 +1334,23 @@ class Game4Player: # (Gelderen, 2016)
                     win4()
                 else:
                     self.Player = self.Player1
+        else: 
+            if self.Player.posY - 120 == self.Player1.posY:
+                self.Player1.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 120 == self.Player2.posY:
+                self.Player2.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 120 == self.Player3.posY:
+                self.Player3.posY += 40
+                self.Player.update_question2()
+            elif self.Player.posY - 120 == self.Player4.posY:
+                self.Player4.posY += 40
+                self.Player.update_question2()
+
 
     def update_catagoryleft(self):
+        if self.checkleft():
          if self.Player.number == 1:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player2
@@ -1210,8 +1365,22 @@ class Game4Player: # (Gelderen, 2016)
          else:
                 self.Player.update_catagoryleft()
                 self.Player = self.Player1
+        else:
+            if self.Player.posX - 50 == self.Player1.posX:
+                self.Player1.posY += 40 
+                self.Player.update_catagoryleft()
+            elif self.Player.posX - 50 == self.Player2.posX:
+                self.Player2.posY += 40
+                self.Player.update_catagoryleft() 
+            elif self.Player.posX - 50 == self.Player3.posX:
+                self.Player3.posY += 40
+                self.Player.update_catagoryleft() 
+            elif self.Player.posX - 50 == self.Player4.posX:
+                self.Player4.posY += 40
+                self.Player.update_catagoryleft() 
 
     def update_catagoryright(self):
+        if self.checkright():
          
          if self.Player.number == 1:
                 self.Player.update_catagoryright()
@@ -1225,6 +1394,19 @@ class Game4Player: # (Gelderen, 2016)
          else:
                 self.Player.update_catagoryright()
                 self.Player = self.Player1
+        else:
+            if self.Player.posX + 50 == self.Player1.posX:
+                self.Player1.posY += 40 
+                self.Player.update_catagoryright()
+            elif self.Player.posX + 50 == self.Player2.posX:
+                self.Player2.posY += 40
+                self.Player.update_catagoryright()
+            elif self.Player.posX + 50 == self.Player3.posX:
+                self.Player3.posY += 40
+                self.Player.update_catagoryright()
+            elif self.Player.posX + 50 == self.Player4.posX:
+                self.Player4.posY += 40
+                self.Player.update_catagoryright()
 
     def nextplayer(self):
 
@@ -1236,6 +1418,70 @@ class Game4Player: # (Gelderen, 2016)
                 self.Player = self.Player4
          else:
                 self.Player = self.Player1
+
+    def checkup(self):
+        if (self.Player.posY - 40 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 40 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 40 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        elif (self.Player.posY - 40 == self.Player4.posY) and (self.Player.posX == self.Player4.posX):
+            return False
+        else:
+            return True
+
+    def checkup2(self):
+        if (self.Player.posY - 80 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 80 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 80 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        elif (self.Player.posY - 80 == self.Player4.posY) and (self.Player.posX == self.Player4.posX):
+            return False
+        else:
+            return True
+
+    def checkup3(self):
+        if (self.Player.posY - 120 == self.Player1.posY) and (self.Player.posX == self.Player1.posX):
+            return False
+        elif (self.Player.posY - 120 == self.Player2.posY) and (self.Player.posX == self.Player2.posX):
+            return False
+        elif (self.Player.posY - 120 == self.Player3.posY) and (self.Player.posX == self.Player3.posX):
+            return False
+        elif (self.Player.posY - 120 == self.Player4.posY) and (self.Player.posX == self.Player4.posX):
+            return False
+        else:
+            return True
+
+    def checkleft(self):
+        if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            print("hoi")
+            return False
+        elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            print("hoi")
+            return False
+        elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
+            print("hoi")
+            return False
+        elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player4.posY):
+            print("hoi")
+            return False
+        else:
+            return True
+
+    def checkright(self):
+        if (self.Player.posX + 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
+            return False
+        elif (self.Player.posX + 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            return False
+        elif (self.Player.posX + 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
+            return False
+        elif (self.Player.posX + 50 == self.Player3.posX) and (self.Player.posY == self.Player4.posY):
+            return False
+        else:
+            return True
          
 
     #Draw everything
@@ -1759,7 +2005,7 @@ def askquestionges(): #categorie geschiedenis
                             break
 
 def askquestionenter(): #categorie entertainment #(thenewboston, 2014)
-
+        start = time.time():
         a = questions(["Welke gorilla ontsnapte er in 2007 uit Diergaarde Blijdorp? "], ["A : Harambe"], ["B : Bokito"], ["C : Terk"], [pygame.K_b])
         b = questions(["Voor welk museum staat het monument van Zadkine genaamd: De Verwoeste Stad? "], ["A : Maritiem Museum"], ["B : Havenmuseum"], ["C : Mariniersmuseum"], [pygame.K_a])
         c = questions(["Wat is de bekendste plek in Rotterdam waar je terecht kan voor evenementen en concerten? "], ["A : Villa Thalia"], ["B : Ahoy Rotterdam"], ["C : Hollywood"], [pygame.K_b])
@@ -1780,15 +2026,18 @@ def askquestionenter(): #categorie entertainment #(thenewboston, 2014)
         l = [a,b,c,d,e,f,g,k,h,i,j]
         random_selection = random.randint(0, len(l) - 1)
 
-        while not gameExit:
+        while not end == 30:
                 # vragen op de scherm krijgen
+            displaytimed = int(timed/375)
             gameDisplay.fill(red)
             messages_to_screen(l[random_selection].questions[0], black, 20, 10)
             messages_to_screen(l[random_selection].answer1[0], black, 20, 5)
             messages_to_screen(l[random_selection].answer2[0], black, 20, 4)
             messages_to_screen(l[random_selection].answer3[0], black, 20, 3.3)
             messages_to_screen("Kies A , B of C ", black, 20, 2.6)
+            messages_to_screen(str(end), black, 20, 2.0)
             pygame.display.update()
+            end = time.time()
         # knopjes linken
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -1812,6 +2061,7 @@ def askquestionenter(): #categorie entertainment #(thenewboston, 2014)
                             break
 
 def askquestionsport(): #categorie sport #(thenewboston, 2014)
+        timed = 10
 
         a = questions(["Wanneer won Feyenoord de Intercontinental cup (wereldbeker)? "], ["A : 1980"], ["B : 1975"], ["C : 1970"], [pygame.K_c])
         b = questions(["Wanneer won Feyenoord de Europacup? "], ["A : 1986"], ["B : 1970"], ["C : 1976"], [pygame.K_b])
@@ -1833,7 +2083,7 @@ def askquestionsport(): #categorie sport #(thenewboston, 2014)
         l = [a,b,c,d,e,f,g,k,h,i,j]
         random_selection = random.randint(0, len(l) - 1)
 
-        while not gameExit:
+        while not timed == 0:
                 # vragen op de scherm krijgen
             gameDisplay.fill(white)
             messages_to_screen(l[random_selection].questions[0], black, 20, 10)
@@ -1842,6 +2092,8 @@ def askquestionsport(): #categorie sport #(thenewboston, 2014)
             messages_to_screen(l[random_selection].answer3[0], black, 20, 3.3)
             messages_to_screen("Kies A , B of C ", black, 20, 2.6)
             pygame.display.update()
+            timed -= 1
+            print("tijd")
         # knopjes linken
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -2149,7 +2401,8 @@ def process_events():
             return True
     return False # (Gelderen, 2016)
 
-
+def cap(s, l):
+    return s if len(s)<=l else s[0:l-3]
 
 
 #Main program logic
