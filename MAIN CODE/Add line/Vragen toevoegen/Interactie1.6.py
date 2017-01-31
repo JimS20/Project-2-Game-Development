@@ -173,9 +173,11 @@ class Game2Player:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40 
                 self.Player.update_catagoryleft()
+                self.nextplayer()
             elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
-                self.Player.update_catagoryleft()          
+                self.Player.update_catagoryleft()
+                self.nextplayer()          
 
     def update_catagoryright(self):
         if self.checkright():         
