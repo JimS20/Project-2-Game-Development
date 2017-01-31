@@ -8,10 +8,13 @@ display_hight = 300
 gameDisplay = pygame.display.set_mode((display_width, display_hight))
 
 font = pygame.font.SysFont(None, 30)
+
 window = pygame.display.set_mode((400, 300))
 pygame.display.set_caption("Dobbelsteen worp")
+
 white = (255,255,255)
-#Plaatjes die de dobbelsteen getal laten zien
+
+
 OneFace = pygame.image.load("images/1.png")
 TwoFace = pygame.image.load("images/2.png")
 ThreeFace = pygame.image.load("images/3.png")
@@ -34,23 +37,26 @@ pygame.display.update()
 
 def RollDice():
     #create 1 variables and assign them random numbers
-    dice = random.randint(1,6)
+    for event in pygame.event.get():
+        if pygame.event == pygame.K_DOWN:
+            if pygame.event == pygame.K_KP_ENTER:
+                dice = random.randint(1,6)
 
-    #Show the dice1 face
-    if dice == 1:
-        return window.blit(OneFace, (140, 150))
-    elif dice == 2:
-        return window.blit(TwoFace, (140, 150))
-    elif dice == 3:
-        return window.blit(ThreeFace, (140, 150))
-    elif dice == 4:
-        return window.blit(FourFace, (140, 150))
-    elif dice == 5:
-        return window.blit(FiveFace, (140, 150))
-    elif dice == 6:
-        return window.blit(SixFace, (140, 150))
+#Show the dice1 face
+                if dice == 1:
+                    return window.blit(OneFace, (140, 150))
+                elif dice == 2:
+                    return window.blit(TwoFace, (140, 150))
+                elif dice == 3:
+                    return window.blit(ThreeFace, (140, 150))
+                elif dice == 4:
+                    return window.blit(FourFace, (140, 150))
+                elif dice == 5:
+                    return window.blit(FiveFace, (140, 150))
+                elif dice == 6:
+                    return window.blit(SixFace, (140, 150))
 
-roll_again = "yes" or "no"
+roll_again = "yes"
 gameLoop = True
 def game_Loop():
  while gameLoop:
@@ -58,14 +64,16 @@ def game_Loop():
          if (event.type == pygame.QUIT):
              gameLoop = False
 
+
 print('Press \'enter\' to roll the dice')
 input()
 dice = RollDice()
 
 pygame.display.flip()
 
-roll_again = input("Roll the dices again?")
 
-pygame.time.wait(6000)
+
+pygame.time.wait(10000)
 
 pygame.quit()
+
