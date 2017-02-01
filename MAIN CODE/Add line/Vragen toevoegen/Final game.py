@@ -2281,7 +2281,7 @@ def rollDice():  # (Bhaumik, 2009), (DeBruine, 2013), (123Animations, 2013)
         diceDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
 
     ##als width weer 800 is en height 600 1,74, 3.5
-    messages_to_screen("Jouw worp: ", white, 10, 5)  # 5, 5
+    messages_to_screen("Jouw worp: ", white, 0.95, 5)  # 5, 5
     pygame.display.update()
 
     #
@@ -2298,17 +2298,17 @@ def rollDice():  # (Bhaumik, 2009), (DeBruine, 2013), (123Animations, 2013)
         diceCurrentImage = random.randint(1, 6)
 
         if diceCurrentImage == 1:
-            return window.blit(OneFace, (60, 200))
+            return window.blit(OneFace, (500, 200))
         elif diceCurrentImage == 2:
-            return window.blit(TwoFace, (60, 200))
+            return window.blit(TwoFace, (500, 200))
         elif diceCurrentImage == 3:
-            return window.blit(ThreeFace, (60, 200))
+            return window.blit(ThreeFace, (500, 200))
         elif diceCurrentImage == 4:
-            return window.blit(FourFace, (60, 200))
+            return window.blit(FourFace, (500, 200))
         elif diceCurrentImage == 5:
-            return window.blit(FiveFace, (60, 200))
+            return window.blit(FiveFace, (500, 200))
         elif diceCurrentImage == 6:
-            return window.blit(SixFace, (60, 200))
+            return window.blit(SixFace, (500, 200))
 
     diceCurrentImage = dicecurrentimage()
 
