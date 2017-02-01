@@ -57,6 +57,10 @@ locatie2 = 0
 locatie3 = 0
 locatie4 = 0
 
+statebij1 = 0
+statebij2 = 0
+statebij3 = 0
+statebij4 = 0
 
 clock = pygame.time.Clock()
 
@@ -2470,7 +2474,7 @@ def Button(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, activ
     textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
     menuDisplay.blit(textSurf, textRect)
     if state == 1:
-        textSurf, textRect = text_objects(smallText)
+        textSurf, textRect = text_objects(message, smallText)
         textRect.center = (x_coordinaat + (display_width / 2), y_coordinaat + (display_height * 0.8))
         menuDisplay.blit(textSurf, textRect)
 
@@ -2494,28 +2498,15 @@ def state3():  # Game
     global state
     state = 3
 
-def stateKeuze1():
+def stateKeuze():
     global state
     state = 4
-
-def stateKeuze2():
-    global state
-    state = 42
-
-def stateKeuze3():
-    global state
-    state = 43
-
-def stateKeuze4():
-    global state
-    state = 44
 
 def state411():
     global state
     global locatie1
     state = 411
     locatie1 = Entertainment
-
 def state412():
     global state
     global locatie1
@@ -2555,7 +2546,6 @@ def state423():
 def state424():
     global state
     global locatie2
-    state = 424
     locatie2 = Geografie
 
 def state431():
@@ -2620,7 +2610,7 @@ def main_menu():
 
         if state == 0:
             menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button('Start', 50, 100, 200, 50, green, bright_green, stateKeuze1)
+            Button('Start', 50, 100, 200, 50, green, bright_green, stateKeuze)
             Button('Rules', 50, 200, 200, 50, blue, bright_blue, state1)
             Button('Score', 50, 300, 200, 50, orange, bright_orange, state2)
             Button("Quit", 50, 400, 200, 50, red, bright_red, quitgame)
@@ -2648,7 +2638,9 @@ def main_menu():
             Button("5. "+score5, (display_width * 0.03), 270, 150, 50, red, red)
             Button('Back', 200, 400, 200, 50, red, bright_red, state0)
 
-        elif state == 4:  # 2 spelers karakters
+
+        elif state == 4:  # StateKeuze
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 1', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state411)
@@ -2657,7 +2649,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state414)
             Button('Back', 50, 500, 200, 50, red, bright_red, state0)
 
+
         elif state == 411:
+
+            global statebij1
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
@@ -2666,7 +2663,14 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
+
+
         elif state == 412:
+
+            global statebij2
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2675,7 +2679,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 413:
+
+            global statebij3
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2684,7 +2693,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 414:
+
+            global statebij4
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2693,122 +2707,194 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 421:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 422:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 423:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 424:
+
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 431:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 432:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 433:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 434:
+
+            statebij4 = 1
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 441:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 442:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 443:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 444:
+
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 45:
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button('Gefeliciteerd, U heeft 4 spelers gekozen', (display_width * 0.1), 50, 600, 100, sky_blue, lightsky_blue)
+            Button('Gefeliciteerd, U heeft 4 spelers gekozen', (display_width * 0.1), 50, 600, 100, sky_blue,lightsky_blue)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame4)
 
         pygame.display.flip()
-
-
 
 # Handle pygame events
 def process_events():
@@ -2818,21 +2904,17 @@ def process_events():
             return True
     return False  # (Gelderen, 2016)
 
-
 # Main program logic
 def playgame2():
     game = Game2Player()
     game.game_loop()
 
-
 def playgame3():
     game = Game3Player()
     game.game_loop()
 
-
 def playgame4():
     game = Game4Player()
     game.game_loop()
-
 
 main_menu()

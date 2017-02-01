@@ -20,7 +20,7 @@ bright_orange = (255, 255, 0)
 block_color = (53, 115, 255)
 sky_blue = (135, 206, 250)
 lightsky_blue = (135, 206, 250)
-grey = (211,211,211)
+grey = (211, 211, 211)
 
 display_width = 720
 display_height = 480
@@ -33,6 +33,14 @@ winDisplay = pygame.display.set_mode((display_width, display_height))
 menuDisplay = pygame.display.set_mode((display_width, display_height))
 
 window = pygame.display.set_mode((720, 480))
+
+startSound = pygame.mixer.Sound('Game Start Here We Go.wav')
+correctSound = pygame.mixer.Sound('Correct 1-Up.wav')
+wrongSound = pygame.mixer.Sound('Wrong.wav')
+punchSound = pygame.mixer.Sound('Punch Bump.wav')
+victorySound = pygame.mixer.Sound('Victory Fortress clear.wav')
+climbingSound = pygame.mixer.Sound('Jump.wav')
+timeSound = pygame.mixer.Sound('Running Out of time.wav')
 
 # Plaatjes die de dobbelsteen getal laten zien
 OneFace = pygame.image.load("images/1.png")
@@ -57,6 +65,10 @@ locatie2 = 0
 locatie3 = 0
 locatie4 = 0
 
+statebij1 = 0
+statebij2 = 0
+statebij3 = 0
+statebij4 = 0
 
 clock = pygame.time.Clock()
 
@@ -65,8 +77,6 @@ state = 0
 pygame.display.set_caption('Quiz')
 
 font = pygame.font.SysFont(None, 30)
-
-
 
 
 class Game2Player:
@@ -117,9 +127,11 @@ class Game2Player:
         else:
             if self.Player.posY - 40 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
 
     def update_question2(self):
@@ -140,9 +152,11 @@ class Game2Player:
         else:
             if self.Player.posY - 80 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
 
     def update_question3(self):
@@ -163,9 +177,11 @@ class Game2Player:
         else:
             if self.Player.posY - 120 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question3()
             elif self.Player.posY - 120 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question3()
 
     def update_catagoryleft(self):
@@ -179,10 +195,12 @@ class Game2Player:
         else:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
                 self.nextplayer()
             elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
                 self.nextplayer()
 
@@ -197,10 +215,12 @@ class Game2Player:
         else:
             if self.Player.posX + 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
 
@@ -280,6 +300,8 @@ class Game2Player:
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(correctSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -304,6 +326,8 @@ class Game2Player:
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(wrongSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -323,6 +347,7 @@ class Game2Player:
 
     # The game loop
     def game_loop(self):
+        pygame.mixer.Sound.play(startSound)
         while not process_events():
 
             for event in pygame.event.get():
@@ -661,12 +686,15 @@ class Game3Player:
         else:
             if self.Player.posY - 40 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
 
     def update_question2(self):
@@ -693,12 +721,15 @@ class Game3Player:
         else:
             if self.Player.posY - 80 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
 
     def update_question3(self):
@@ -725,12 +756,15 @@ class Game3Player:
         else:
             if self.Player.posY - 120 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question3()
             elif self.Player.posY - 120 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question3()
             elif self.Player.posY - 120 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question3()
 
     def update_catagoryleft(self):
@@ -747,14 +781,17 @@ class Game3Player:
         else:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
                 self.nextplayer()
             elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
                 self.nextplayer()
             elif self.Player.posX - 50 == self.Player3.posX:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
                 self.nextplayer()
 
@@ -774,14 +811,17 @@ class Game3Player:
         else:
             if self.Player.posX + 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player3.posX:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
 
@@ -875,6 +915,8 @@ class Game3Player:
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(correctSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -900,6 +942,8 @@ class Game3Player:
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(wrongSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -920,6 +964,7 @@ class Game3Player:
 
     # The game loop
     def game_loop(self):
+        pygame.mixer.Sound.play(startSound)
         while not process_events():
 
             for event in pygame.event.get():
@@ -1265,15 +1310,19 @@ class Game4Player:  # (Gelderen, 2016)
         else:
             if self.Player.posY - 40 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
             elif self.Player.posY - 40 == self.Player4.posY:
                 self.Player4.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question()
 
     def update_question2(self):
@@ -1308,15 +1357,19 @@ class Game4Player:  # (Gelderen, 2016)
         else:
             if self.Player.posY - 80 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 80 == self.Player4.posY:
                 self.Player4.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
 
     def update_question3(self):
@@ -1351,15 +1404,19 @@ class Game4Player:  # (Gelderen, 2016)
         else:
             if self.Player.posY - 120 == self.Player1.posY:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 120 == self.Player2.posY:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 120 == self.Player3.posY:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
             elif self.Player.posY - 120 == self.Player4.posY:
                 self.Player4.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_question2()
 
     def update_catagoryleft(self):
@@ -1381,15 +1438,19 @@ class Game4Player:  # (Gelderen, 2016)
         else:
             if self.Player.posX - 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
             elif self.Player.posX - 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
             elif self.Player.posX - 50 == self.Player3.posX:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
             elif self.Player.posX - 50 == self.Player4.posX:
                 self.Player4.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryleft()
 
     def update_catagoryright(self):
@@ -1410,18 +1471,22 @@ class Game4Player:  # (Gelderen, 2016)
         else:
             if self.Player.posX + 50 == self.Player1.posX:
                 self.Player1.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player2.posX:
                 self.Player2.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player3.posX:
                 self.Player3.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
             elif self.Player.posX + 50 == self.Player4.posX:
                 self.Player4.posY += 40
+                pygame.mixer.Sound.play(punchSound)
                 self.Player.update_catagoryright()
                 self.nextplayer()
 
@@ -1529,6 +1594,8 @@ class Game4Player:  # (Gelderen, 2016)
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(correctSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -1555,6 +1622,8 @@ class Game4Player:  # (Gelderen, 2016)
         self.screen.fill((0, 0, 0))
         self.screen.blit(EuromastImg, (65, 0))
 
+        pygame.mixer.Sound.play(wrongSound)
+
         # Draw the lines
         self.Line.draw(self.screen)
 
@@ -1576,6 +1645,7 @@ class Game4Player:  # (Gelderen, 2016)
 
     # The game loop
     def game_loop(self):
+        pygame.mixer.Sound.play(startSound)
         while not process_events():
 
             for event in pygame.event.get():
@@ -1870,12 +1940,15 @@ class Player:
 
     def update_question(self):
         self.posY -= 40
+        pygame.mixer.Sound.play(climbingSound)
 
     def update_question2(self):
         self.posY -= 80
+        pygame.mixer.Sound.play(climbingSound)
 
     def update_question3(self):
         self.posY -= 120
+        pygame.mixer.Sound.play(climbingSound)
 
     def update_catagoryleft(self):
         if self.posX == 220:
@@ -1914,7 +1987,7 @@ class questions():  # vragen op het scherm
 
 
 def askquestiongeo():  # categorie geo
-
+    timed = 55000
     a = questions(["Waar ligt de Euromast in Rotterdam? "], ["A : Wijnhaven"], ["B : Delfsehaven"], ["C : Parkhaven"],
                   [pygame.K_c])
     b = questions(["Hoe heet het vervoersbedrijf van Rotterdam? "], ["A : HTM"], ["B : Connection"], ["C : RET"],
@@ -1946,8 +2019,15 @@ def askquestiongeo():  # categorie geo
     l = [a, b, c, d, e, f, g, k, h, i, j]
     random_selection = random.randint(0, len(l) - 1)
 
-    while not gameExit:
+    while not timed == 0:
         # vragen op de scherm krijgen
+
+        displaytimed = int(timed / 1100)
+
+        if timed <= 11000:
+            pygame.mixer.Sound.play(timeSound)
+
+
         gameDisplay.fill(green)
         messages_to_screen(l[random_selection].questions[0], black, 20, 10)
         messages_to_screen(l[random_selection].answer1[0], black, 20, 5)
@@ -1979,7 +2059,7 @@ def askquestiongeo():  # categorie geo
 
 
 def askquestionges():  # categorie geschiedenis
-
+    timed = 55000
     a = questions(["Welk uitgaanscentrum in Rotterdam werd maar liefst met vier bioscopen uitgebreid na de oorlog? "],
                   ["A : Kruiskade"], ["B : Blaak"], ["C : Beurs"], [pygame.K_a])
     b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens de 2e wereld oorlog? "], ["A : 14-mei-1940"],
@@ -1991,8 +2071,8 @@ def askquestionges():  # categorie geschiedenis
     e = questions(["Welke autotunnel van Rotterdam was de eerste van Nederland? "], ["A : Maastunnel"],
                   ["B : Wijntunnel"], ["C : Metrotunnel"], [pygame.K_a])
     f = questions([
-                      "Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum dat de Duitsers probeerden te bereiken? "],
-                  ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
+        "Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum dat de Duitsers probeerden te bereiken? "],
+        ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
     g = questions(["Wanneer is de professionele voetbalclub Feyenoord opgericht? "], ["A : 19-07-1908"],
                   ["B : 07-12-1910"], ["C : 30-03-1906"], [pygame.K_a])
     h = questions(["In welk jaar heeft Rotterdam definitief stadsrechten gekregen? "], ["A : 7-juni-1340"],
@@ -2012,8 +2092,14 @@ def askquestionges():  # categorie geschiedenis
     l = [a, b, c, d, e, f, g, h, i, j]
     random_selection = random.randint(0, len(l) - 1)
 
-    while not gameExit:
+    while not timed == 0:
         # vragen op de scherm krijgen
+        displaytimed = int(timed / 1100)
+
+        if timed <= 11000:
+            pygame.mixer.Sound.play(timeSound)
+
+
         gameDisplay.fill(yellow)
         messages_to_screen(l[random_selection].questions[0], black, 20, 10)
         messages_to_screen(l[random_selection].answer1[0], black, 20, 5)
@@ -2081,6 +2167,10 @@ def askquestionenter():  # categorie entertainment #(thenewboston, 2014)
     while not timed == 0:
         # vragen op de scherm krijgen
         displaytimed = int(timed / 1100)
+
+        if timed <= 11000:
+            pygame.mixer.Sound.play(timeSound)
+
         gameDisplay.fill(red)
         messages_to_screen(l[random_selection].questions[0], black, 20, 10)
         messages_to_screen(l[random_selection].answer1[0], black, 20, 5)
@@ -2114,7 +2204,7 @@ def askquestionenter():  # categorie entertainment #(thenewboston, 2014)
 
 
 def askquestionsport():  # categorie sport #(thenewboston, 2014)
-    timed = 18750
+    timed = 55000
 
     a = questions(["Wanneer won Feyenoord de Intercontinental cup (wereldbeker)? "], ["A : 1980"], ["B : 1975"],
                   ["C : 1970"], [pygame.K_c])
@@ -2144,6 +2234,12 @@ def askquestionsport():  # categorie sport #(thenewboston, 2014)
     random_selection = random.randint(0, len(l) - 1)
 
     while not timed == 0:
+        displaytimed = int(timed / 1100)
+
+        if timed <= 11000:
+            pygame.mixer.Sound.play(timeSound)
+            pygame.mixer.music.stop(timeSound)
+
         # vragen op de scherm krijgen
         gameDisplay.fill(white)
         messages_to_screen(l[random_selection].questions[0], black, 20, 10)
@@ -2239,6 +2335,8 @@ def win():
         screen_text = font.render(msg, True, color)
         winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
 
+    pygame.mixer.Sound.play(victorySound)
+
     gameExit = False
 
     while not gameExit:
@@ -2267,6 +2365,8 @@ def win2():
     def messages_to_screen(msg, color, lokatie1, lokatie2):  # massage hoe hij er uit moet zien en waar
         screen_text = font.render(msg, True, color)
         winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
+
+    pygame.mixer.Sound.play(victorySound)
 
     gameExit = False
 
@@ -2297,6 +2397,8 @@ def win3():
         screen_text = font.render(msg, True, color)
         winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
 
+    pygame.mixer.Sound.play(victorySound)
+
     gameExit = False
 
     while not gameExit:
@@ -2326,6 +2428,8 @@ def win4():
         screen_text = font.render(msg, True, color)
         winDisplay.blit(screen_text, [display_height / lokatie1, display_width / lokatie2])
 
+    pygame.mixer.Sound.play(victorySound)
+
     gameExit = False
 
     while not gameExit:
@@ -2348,6 +2452,7 @@ def win4():
                 if event.key == pygame.K_q:
                     state0()
                     main_menu()
+
 
 def interact_with_database(command):
     # Connect and set up cursor
@@ -2390,42 +2495,53 @@ def download_top_score1():
     result = interact_with_database("SELECT * FROM score ORDER BY score DESC")[0][1]
     result1 = interact_with_database("SELECT * FROM score ORDER BY score DESC")[0][0]
     return str(result) + ": " + str(result1)
+
+
 def download_top_score2():
     result = interact_with_database("SELECT * FROM score ORDER BY score DESC")[1][1]
     result1 = interact_with_database("SELECT * FROM score ORDER BY score DESC")[1][0]
     return str(result) + ": " + str(result1)
+
+
 def download_top_score3():
     result = interact_with_database("SELECT * FROM score ORDER BY score DESC")[2][1]
     result1 = interact_with_database("SELECT * FROM score ORDER BY score DESC")[2][0]
     return str(result) + ": " + str(result1)
+
+
 def download_top_score4():
     result = interact_with_database("SELECT * FROM score ORDER BY score DESC")[3][1]
     result1 = interact_with_database("SELECT * FROM score ORDER BY score DESC")[3][0]
     return str(result) + ": " + str(result1)
+
+
 def download_top_score5():
     result = interact_with_database("SELECT * FROM score ORDER BY score DESC")[4][1]
     result1 = interact_with_database("SELECT * FROM score ORDER BY score DESC")[4][0]
     return str(result) + ": " + str(result1)
 
+
 def newplayer(name):
-    query = "INSERT INTO score (sc,name) VALUES (1,'"+ name + "');"
+    query = "INSERT INTO score (sc,name) VALUES (1,'" + name + "');"
     interact_with_database(query)
 
+
 def addscore(name):
-    score = interact_with_database("SELECT sc FROM score WHERE name = '" + name + "';" )[0][0]
-    query = "UPDATE score SET sc=" + str(score+1) + " WHERE name = '" + name + "';"
+    score = interact_with_database("SELECT sc FROM score WHERE name = '" + name + "';")[0][0]
+    query = "UPDATE score SET sc=" + str(score + 1) + " WHERE name = '" + name + "';"
     interact_with_database(query)
+
 
 def checkname(name):
     query = interact_with_database("SELECT name FROM score WHERE name = '" + name + "';")
     if query == []:
         return False
     else:
-        print("[('"+name+"',)]")
+        print("[('" + name + "',)]")
         return True
 
 
-                    # MENU------------------------------------------------------------
+        # MENU------------------------------------------------------------
 
 
 # Geïnsprireerd door: (sentdex, 2014)
@@ -2470,7 +2586,7 @@ def Button(message, x_coordinaat, y_coordinaat, breedte, hoogte, inactive, activ
     textRect.center = (x_coordinaat + (breedte / 2), y_coordinaat + (hoogte / 2))
     menuDisplay.blit(textSurf, textRect)
     if state == 1:
-        textSurf, textRect = text_objects(smallText)
+        textSurf, textRect = text_objects(message, smallText)
         textRect.center = (x_coordinaat + (display_width / 2), y_coordinaat + (display_height * 0.8))
         menuDisplay.blit(textSurf, textRect)
 
@@ -2494,21 +2610,11 @@ def state3():  # Game
     global state
     state = 3
 
-def stateKeuze1():
+
+def stateKeuze():
     global state
     state = 4
 
-def stateKeuze2():
-    global state
-    state = 42
-
-def stateKeuze3():
-    global state
-    state = 43
-
-def stateKeuze4():
-    global state
-    state = 44
 
 def state411():
     global state
@@ -2516,11 +2622,13 @@ def state411():
     state = 411
     locatie1 = Entertainment
 
+
 def state412():
     global state
     global locatie1
     state = 412
     locatie1 = Sport
+
 
 def state413():
     global state
@@ -2528,11 +2636,13 @@ def state413():
     state = 413
     locatie1 = Geschiedenis
 
+
 def state414():
     global state
     global locatie1
     state = 414
     locatie1 = Geografie
+
 
 def state421():
     global state
@@ -2540,11 +2650,13 @@ def state421():
     state = 421
     locatie2 = Entertainment
 
+
 def state422():
     global state
     global locatie2
     state = 422
     locatie2 = Sport
+
 
 def state423():
     global state
@@ -2552,11 +2664,12 @@ def state423():
     state = 423
     locatie2 = Geschiedenis
 
+
 def state424():
     global state
     global locatie2
-    state = 424
     locatie2 = Geografie
+
 
 def state431():
     global state
@@ -2564,11 +2677,13 @@ def state431():
     state = 431
     locatie3 = Entertainment
 
+
 def state432():
     global state
     global locatie3
     state = 432
     locatie3 = Sport
+
 
 def state433():
     global state
@@ -2576,11 +2691,13 @@ def state433():
     state = 433
     locatie3 = Geschiedenis
 
+
 def state434():
     global state
     global locatie3
     state = 434
     locatie3 = Geografie
+
 
 def state441():
     global state
@@ -2588,11 +2705,13 @@ def state441():
     state = 441
     locatie4 = Entertainment
 
+
 def state442():
     global state
     global locatie4
     state = 442
     locatie4 = Sport
+
 
 def state443():
     global state
@@ -2600,15 +2719,18 @@ def state443():
     state = 443
     locatie4 = Geschiedenis
 
+
 def state444():
     global state
     global locatie4
     state = 444
     locatie4 = Geografie
 
+
 def state45():
     global state
     state = 45
+
 
 def main_menu():
     intro = True
@@ -2620,7 +2742,7 @@ def main_menu():
 
         if state == 0:
             menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button('Start', 50, 100, 200, 50, green, bright_green, stateKeuze1)
+            Button('Start', 50, 100, 200, 50, green, bright_green, stateKeuze)
             Button('Rules', 50, 200, 200, 50, blue, bright_blue, state1)
             Button('Score', 50, 300, 200, 50, orange, bright_orange, state2)
             Button("Quit", 50, 400, 200, 50, red, bright_red, quitgame)
@@ -2641,14 +2763,16 @@ def main_menu():
             score4 = download_top_score4()
             score5 = download_top_score5()
             menuDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button("1. "+ score1, (display_width * 0.03), 70, 150, 50, red, red)
-            Button("2. "+score2, (display_width * 0.03), 120, 150, 50, red, red)
-            Button("3. "+score3, (display_width * 0.03), 170, 150, 50, red, red)
-            Button("4. "+score4, (display_width * 0.03), 220, 150, 50, red, red)
-            Button("5. "+score5, (display_width * 0.03), 270, 150, 50, red, red)
+            Button("1. " + score1, (display_width * 0.03), 70, 150, 50, red, red)
+            Button("2. " + score2, (display_width * 0.03), 120, 150, 50, red, red)
+            Button("3. " + score3, (display_width * 0.03), 170, 150, 50, red, red)
+            Button("4. " + score4, (display_width * 0.03), 220, 150, 50, red, red)
+            Button("5. " + score5, (display_width * 0.03), 270, 150, 50, red, red)
             Button('Back', 200, 400, 200, 50, red, bright_red, state0)
 
-        elif state == 4:  # 2 spelers karakters
+
+        elif state == 4:  # StateKeuze
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 1', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state411)
@@ -2657,7 +2781,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state414)
             Button('Back', 50, 500, 200, 50, red, bright_red, state0)
 
+
         elif state == 411:
+
+            global statebij1
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
@@ -2666,7 +2795,14 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
+
+
         elif state == 412:
+
+            global statebij2
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2675,7 +2811,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 413:
+
+            global statebij3
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2684,7 +2825,12 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 414:
+
+            global statebij4
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 2', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state421)
@@ -2693,121 +2839,195 @@ def main_menu():
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
+
         elif state == 421:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 422:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 423:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state434)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 424:
+
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 3', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state431)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state432)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state433)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
 
         elif state == 431:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 432:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 433:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state444)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 434:
+
+            statebij4 = 1
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red, state441)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state442)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state443)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame3)
 
         elif state == 441:
+
+            statebij1 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
             Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, grey, grey)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 442:
+
+            statebij2 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 443:
+
+            statebij3 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
-            Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
+            if statebij4 != 1:
+                Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 444:
+
+            statebij4 = 1
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
             Button('Speler 4', (display_width * 0.2), 50, 100, 100, sky_blue, lightsky_blue)
-            Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
-            Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
-            Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
+            if statebij1 != 1:
+                Button('Entertainment', (display_width * 0.03), (display_height / 3), 150, 50, red, red)
+            if statebij2 != 1:
+                Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue)
+            if statebij3 != 1:
+                Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
             Button('Next', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, state45)
 
         elif state == 45:
+
             gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button('Gefeliciteerd, U heeft 4 spelers gekozen', (display_width * 0.1), 50, 600, 100, sky_blue, lightsky_blue)
+            Button('Gefeliciteerd, U heeft 4 spelers gekozen', (display_width * 0.1), 50, 600, 100, sky_blue,
+                   lightsky_blue)
             Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame4)
 
         pygame.display.flip()
-
 
 
 # Handle pygame events
