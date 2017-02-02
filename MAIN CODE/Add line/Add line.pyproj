@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>66dd6233-cd98-4394-a93f-62ea55443927</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Vragen toevoegen\Final game.py</StartupFile>
+    <StartupFile>Vragen toevoegen\The Euromaster.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,9 +35,10 @@
     <Compile Include="Vragen toevoegen\Addquestions1.1.py" />
     <Compile Include="Vragen toevoegen\Addquestions1.3.py" />
     <Compile Include="Vragen toevoegen\Dice.py" />
+    <Compile Include="Vragen toevoegen\Final game1.5.py" />
     <Compile Include="Vragen toevoegen\Interactie1.3.py" />
     <Compile Include="Vragen toevoegen\Interactie1.6.py" />
-    <Compile Include="Vragen toevoegen\Final game.py" />
+    <Compile Include="Vragen toevoegen\Final game1.3.py" />
     <Compile Include="Vragen toevoegen\Interactie1.5.py" />
     <Compile Include="Vragen toevoegen\Main game1.2.py" />
     <Compile Include="Vragen toevoegen\graphics toevoegen1.1.py" />
@@ -50,6 +51,7 @@
     <Compile Include="Vragen toevoegen\questionsclasses.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Vragen toevoegen\The Euromaster.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vragen toevoegen\" />

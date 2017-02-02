@@ -56,9 +56,9 @@ Regels = pygame.image.load('images/Regels5.jpg')
 EuromastImg = pygame.image.load('images/Euromasterace V4.jpg')
 
 Entertainment = 320
-Sport = 270
+Sport = 370
 Geografie = 220
-Geschiedenis = 370
+Geschiedenis = 270
 
 locatie1 = 0
 locatie2 = 0
@@ -99,8 +99,8 @@ class Game2Player:
         self.Line = Lines()
 
         # Create player
-        self.Player1 = Player(locatie1, 470, red, 1)
-        self.Player2 = Player(locatie2, 470, blue, 2)
+        self.Player1 = Player(locatie1, 110, red, 1)
+        self.Player2 = Player(locatie2, 110, blue, 2)
 
         l = [self.Player1, self.Player2]
         random_selection = random.choice(l)
@@ -257,10 +257,12 @@ class Game2Player:
 
     def checkleft(self):
         if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
-            print("hoi")
+            return False
+        elif (self.Player.posX + 150 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            return False
+        elif (self.Player.posX + 150 == self.Player1.posX) and (self.Player.posY == self.Player2.posY):
             return False
         else:
             return True
@@ -269,6 +271,10 @@ class Game2Player:
         if (self.Player.posX + 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
             return False
         elif (self.Player.posX + 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            return False
+        elif (self.Player.posX - 150 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
+            return False
+        elif (self.Player.posX - 150 == self.Player1.posX) and (self.Player.posY == self.Player2.posY):
             return False
         else:
             return True
@@ -362,7 +368,7 @@ class Game2Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                                 
 
                                 else:
                                     self.nextplayer()
@@ -375,7 +381,7 @@ class Game2Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -389,7 +395,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                           
 
                                 else:
                                     self.nextplayer()
@@ -401,7 +407,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -415,7 +421,7 @@ class Game2Player:
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -430,7 +436,7 @@ class Game2Player:
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -442,7 +448,7 @@ class Game2Player:
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -455,7 +461,7 @@ class Game2Player:
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -467,7 +473,7 @@ class Game2Player:
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -480,7 +486,7 @@ class Game2Player:
                                     self.update_question3()
 
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -494,8 +500,7 @@ class Game2Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
-
+                              
                                 else:
                                     self.nextplayer()
                                     self.drawwrong()
@@ -506,7 +511,7 @@ class Game2Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                                  
 
                                 else:
                                     self.nextplayer()
@@ -519,7 +524,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -531,7 +536,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -544,7 +549,7 @@ class Game2Player:
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -560,7 +565,7 @@ class Game2Player:
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -572,7 +577,7 @@ class Game2Player:
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -585,7 +590,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -597,7 +602,7 @@ class Game2Player:
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                       
 
                                 else:
                                     self.nextplayer()
@@ -610,7 +615,7 @@ class Game2Player:
                                     self.update_question3()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -866,13 +871,10 @@ class Game3Player:
 
     def checkleft(self):
         if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
-            print("hoi")
             return False
         else:
             return True
@@ -979,7 +981,7 @@ class Game3Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                        
 
                                 else:
                                     self.nextplayer()
@@ -992,7 +994,7 @@ class Game3Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                      
 
                                 else:
                                     self.nextplayer()
@@ -1006,7 +1008,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1018,7 +1020,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -1032,7 +1034,7 @@ class Game3Player:
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -1047,7 +1049,7 @@ class Game3Player:
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1059,7 +1061,7 @@ class Game3Player:
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1072,7 +1074,7 @@ class Game3Player:
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                           
 
                                 else:
                                     self.nextplayer()
@@ -1084,7 +1086,7 @@ class Game3Player:
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                                 
 
                                 else:
                                     self.nextplayer()
@@ -1097,7 +1099,7 @@ class Game3Player:
                                     self.update_question3()
 
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1111,7 +1113,7 @@ class Game3Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                           
 
                                 else:
                                     self.nextplayer()
@@ -1123,7 +1125,7 @@ class Game3Player:
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -1136,7 +1138,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                                
 
                                 else:
                                     self.nextplayer()
@@ -1148,7 +1150,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1161,7 +1163,7 @@ class Game3Player:
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1177,7 +1179,7 @@ class Game3Player:
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                                 
 
                                 else:
                                     self.nextplayer()
@@ -1189,7 +1191,7 @@ class Game3Player:
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1202,7 +1204,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1214,7 +1216,7 @@ class Game3Player:
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1227,7 +1229,7 @@ class Game3Player:
                                     self.update_question3()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1539,16 +1541,12 @@ class Game4Player:  # (Gelderen, 2016)
 
     def checkleft(self):
         if (self.Player.posX - 50 == self.Player1.posX) and (self.Player.posY == self.Player1.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player2.posX) and (self.Player.posY == self.Player2.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player3.posY):
-            print("hoi")
             return False
         elif (self.Player.posX - 50 == self.Player3.posX) and (self.Player.posY == self.Player4.posY):
-            print("hoi")
             return False
         else:
             return True
@@ -1660,7 +1658,6 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
 
                                 else:
                                     self.nextplayer()
@@ -1673,7 +1670,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                         
 
                                 else:
                                     self.nextplayer()
@@ -1687,7 +1684,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1699,7 +1696,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                         
 
                                 else:
                                     self.nextplayer()
@@ -1713,7 +1710,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1728,7 +1725,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1740,7 +1737,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
 
                                     self.drawcorrect()
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1753,7 +1750,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1765,7 +1762,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
 
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1778,7 +1775,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question3()
 
                                     self.drawcorrect()
-                                    print(answer)
+                            
 
                                 else:
                                     self.nextplayer()
@@ -1792,7 +1789,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1804,7 +1801,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.drawcorrect()
 
-                                    print(answer)
+                        
 
                                 else:
                                     self.nextplayer()
@@ -1817,7 +1814,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                               
 
                                 else:
                                     self.nextplayer()
@@ -1829,7 +1826,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.drawcorrect()
 
-                                    print(answer)
+                                
 
                                 else:
                                     self.nextplayer()
@@ -1842,7 +1839,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question3()
                                     self.drawcorrect()
 
-                                    print(answer)
+                        
 
                                 else:
                                     self.nextplayer()
@@ -1858,7 +1855,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                        
 
                                 else:
                                     self.nextplayer()
@@ -1870,7 +1867,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                              
 
                                 else:
                                     self.nextplayer()
@@ -1883,7 +1880,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                             
 
                                 else:
                                     self.nextplayer()
@@ -1895,7 +1892,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question2()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                                
 
                                 else:
                                     self.nextplayer()
@@ -1908,7 +1905,7 @@ class Game4Player:  # (Gelderen, 2016)
                                     self.update_question3()
                                     self.draw()
                                     self.drawcorrect()
-                                    print(answer)
+                           
 
                                 else:
                                     self.nextplayer()
@@ -2070,9 +2067,9 @@ def askquestiongeo():  # categorie geo
 
 def askquestionges():  # categorie geschiedenis
     timed = 55000
-    a = questions(["Welk uitgaanscentrum in Rotterdam werd maar liefst met vier bioscopen uitgebreid na de oorlog? "],
+    a = questions(["Welk uitgaanscentrum in Rotterdam is uitgebreid na de oorlog? "],
                   ["A : Kruiskade"], ["B : Blaak"], ["C : Beurs"], [pygame.K_a])
-    b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens de 2e wereld oorlog? "], ["A : 14-mei-1940"],
+    b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens WO II? "], ["A : 14-mei-1940"],
                   ["B : 17-juli-1935"], ["C : 31-december-1948"], [pygame.K_a])
     c = questions(["In welk jaar werd de eerste metrolijn van Rotterdam geopend? "], ["A : 1967"], ["B : 1976"],
                   ["C : 1968"], [pygame.K_c])
@@ -2080,10 +2077,8 @@ def askquestionges():  # categorie geschiedenis
                   ["C : 1936"], [pygame.K_c])
     e = questions(["Welke autotunnel van Rotterdam was de eerste van Nederland? "], ["A : Maastunnel"],
                   ["B : Wijntunnel"], ["C : Metrotunnel"], [pygame.K_a])
-    f = questions([
-        "Wat was tijdens de Tweede Wereldoorlog de enige weg naar het" 
-            "centrum dat de Duitsers probeerden te bereiken? "],
-        ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
+    f = questions(["Wat was tijdens de 2e wereldoorlog de enige weg naar het centrum? "],
+                        ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
     g = questions(["Wanneer is de professionele voetbalclub Feyenoord opgericht? "], ["A : 19-07-1908"],
                   ["B : 07-12-1910"], ["C : 30-03-1906"], [pygame.K_a])
     h = questions(["In welk jaar heeft Rotterdam definitief stadsrechten gekregen? "], ["A : 7-juni-1340"],
@@ -2147,9 +2142,9 @@ def askquestionenter():  # categorie entertainment #(thenewboston, 2014)
     timed = 55000
     a = questions(["Welke gorilla ontsnapte er in 2007 uit Diergaarde Blijdorp? "], ["A : Harambe"], ["B : Bokito"],
                   ["C : Terk"], [pygame.K_b])
-    b = questions(["Voor welk museum staat het monument van Zadkine genaamd: De Verwoeste Stad? "],
+    b = questions(["Voor welk museum staat het monument van Zadkine? "],
                   ["A : Maritiem Museum"], ["B : Havenmuseum"], ["C : Mariniersmuseum"], [pygame.K_a])
-    c = questions(["Wat is de bekendste plek in Rotterdam waar je terecht kan voor evenementen en concerten? "],
+    c = questions(["Wat is de bekendste plek in Rotterdam voor evenementen? "],
                   ["A : Villa Thalia"], ["B : Ahoy Rotterdam"], ["C : Hollywood"], [pygame.K_b])
     d = questions(["Welke in 2002 vermoorde politicus woonde in Rotterdam"], ["A : Pim fortuyn"],
                   ["B : Peter Balkenende"], ["C : Wim Kok"], [pygame.K_a])
@@ -2356,7 +2351,7 @@ def win():
         # vragen op de scherm krijgen
         winDisplay.fill(red)
         messages_to_screen("Player 1 wins!", black, 9, 4)
-        messages_to_screen("Type name in console", black, 50, 10)
+        messages_to_screen("Type naam in console en druk op enter", black, 50, 10)
         pygame.display.update()
         n = str(input())
         if checkname(n):
@@ -2387,7 +2382,7 @@ def win2():
         # vragen op de scherm krijgen
         winDisplay.fill(white)
         messages_to_screen("Player 2 wins!", black, 9, 4)
-        messages_to_screen("Press Q to return to main menu", black, 50, 10)
+        messages_to_screen("", black, 50, 10)
         pygame.display.update()
         n = str(input())
         if checkname(n):
@@ -2418,7 +2413,7 @@ def win3():
         # vragen op de scherm krijgen
         winDisplay.fill(yellow)
         messages_to_screen("Player 3 wins!", black, 9, 4)
-        messages_to_screen("Press Q to return to main menu", black, 50, 10)
+        messages_to_screen("Type naam in console en druk op enter", black, 50, 10)
         pygame.display.update()
         n = str(input())
         if checkname(n):
@@ -2449,7 +2444,7 @@ def win4():
         # vragen op de scherm krijgen
         winDisplay.fill(green)
         messages_to_screen("Player 4 wins!", black, 9, 4)
-        messages_to_screen("Press Q to return to main menu", black, 50, 10)
+        messages_to_screen("Type naam in console en druk op enter", black, 50, 10)
         pygame.display.update()
         n = str(input())
         if checkname(n):
@@ -2681,6 +2676,7 @@ def state423():
 def state424():
     global state
     global locatie2
+    state = 424
     locatie2 = Geografie
 
 
@@ -2806,10 +2802,6 @@ def main_menu():
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state422)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state423)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
-            Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
-
-
-
 
         elif state == 412:
 
@@ -2822,8 +2814,6 @@ def main_menu():
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, grey, grey)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state423)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
-            Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
-
 
         elif state == 413:
 
@@ -2836,8 +2826,6 @@ def main_menu():
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state422)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, grey, grey)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, green, green, state424)
-            Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
-
 
         elif state == 414:
 
@@ -2850,8 +2838,6 @@ def main_menu():
             Button('Sport', (display_width * 0.27), (display_height / 3), 150, 50, blue, blue, state422)
             Button('Geschiedenis', (display_width * 0.512), (display_height / 3), 150, 50, yellow, yellow, state423)
             Button('Geografie', (display_width * 0.755), (display_height / 3), 150, 50, grey, grey)
-            Button('Start!', (display_width * 0.6), (display_height / 1.5), 200, 50, green, bright_green, playgame2)
-
 
         elif state == 421:
 

@@ -2070,9 +2070,9 @@ def askquestiongeo():  # categorie geo
 
 def askquestionges():  # categorie geschiedenis
     timed = 55000
-    a = questions(["Welk uitgaanscentrum in Rotterdam werd maar liefst met vier bioscopen uitgebreid na de oorlog? "],
+    a = questions(["Welk uitgaanscentrum in Rotterdam is uitgebreid na de oorlog? "],
                   ["A : Kruiskade"], ["B : Blaak"], ["C : Beurs"], [pygame.K_a])
-    b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens de 2e wereld oorlog? "], ["A : 14-mei-1940"],
+    b = questions(["Wanneer waren de bombardementen in Rotterdam tijdens WO II? "], ["A : 14-mei-1940"],
                   ["B : 17-juli-1935"], ["C : 31-december-1948"], [pygame.K_a])
     c = questions(["In welk jaar werd de eerste metrolijn van Rotterdam geopend? "], ["A : 1967"], ["B : 1976"],
                   ["C : 1968"], [pygame.K_c])
@@ -2080,10 +2080,8 @@ def askquestionges():  # categorie geschiedenis
                   ["C : 1936"], [pygame.K_c])
     e = questions(["Welke autotunnel van Rotterdam was de eerste van Nederland? "], ["A : Maastunnel"],
                   ["B : Wijntunnel"], ["C : Metrotunnel"], [pygame.K_a])
-    f = questions([
-        "Wat was tijdens de Tweede Wereldoorlog de enige weg naar het" 
-            "centrum dat de Duitsers probeerden te bereiken? "],
-        ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
+    f = questions(["Wat was tijdens de 2e wereldoorlog de enige weg naar het centrum? "],
+                        ["A : De nieuwe binnenweg"], ["B : Maasburg"], ["C : Willemsburg"], [pygame.K_b])
     g = questions(["Wanneer is de professionele voetbalclub Feyenoord opgericht? "], ["A : 19-07-1908"],
                   ["B : 07-12-1910"], ["C : 30-03-1906"], [pygame.K_a])
     h = questions(["In welk jaar heeft Rotterdam definitief stadsrechten gekregen? "], ["A : 7-juni-1340"],
@@ -2147,9 +2145,9 @@ def askquestionenter():  # categorie entertainment #(thenewboston, 2014)
     timed = 55000
     a = questions(["Welke gorilla ontsnapte er in 2007 uit Diergaarde Blijdorp? "], ["A : Harambe"], ["B : Bokito"],
                   ["C : Terk"], [pygame.K_b])
-    b = questions(["Voor welk museum staat het monument van Zadkine genaamd: De Verwoeste Stad? "],
+    b = questions(["Voor welk museum staat het monument van Zadkine? "],
                   ["A : Maritiem Museum"], ["B : Havenmuseum"], ["C : Mariniersmuseum"], [pygame.K_a])
-    c = questions(["Wat is de bekendste plek in Rotterdam waar je terecht kan voor evenementen en concerten? "],
+    c = questions(["Wat is de bekendste plek in Rotterdam voor evenementen? "],
                   ["A : Villa Thalia"], ["B : Ahoy Rotterdam"], ["C : Hollywood"], [pygame.K_b])
     d = questions(["Welke in 2002 vermoorde politicus woonde in Rotterdam"], ["A : Pim fortuyn"],
                   ["B : Peter Balkenende"], ["C : Wim Kok"], [pygame.K_a])
