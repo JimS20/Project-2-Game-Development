@@ -1,7 +1,0 @@
-        elif state == 3:
-            gameDisplay.blit(pygame.transform.scale(background, (display_width, display_height)), (0, 0))
-            Button('Met hoeveel Spelers wilt U spelen?', (display_width * 0.2), 50, 500, 100, sky_blue, lightsky_blue)
-            Button('2 Spelers', display_width * 0.1, (display_height/2), 200, 50, green, bright_green)
-            Button('3 Spelers', display_width * 0.4, (display_height / 2), 200, 50, green, bright_green)
-            Button('4 Spelers', display_width * 0.7, (display_height / 2), 200, 50, green, bright_green)
-            Button('Back', 50, 500, 200, 50, red, bright_red, state0)
